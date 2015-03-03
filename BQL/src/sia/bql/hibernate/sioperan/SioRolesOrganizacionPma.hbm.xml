@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sia.bql.hibernate.sioperan.SioRolesOrganizacionPma" table="SIO_ROLES_ORGANIZACION_PMA"  >
+        <id name="rolOrgPmaId" type="java.lang.Long">
+            <column name="ROL_ORG_PMA_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sioOrganizacion" class="sia.bql.hibernate.sioperan.SioOrganizacion" fetch="select">
+            <column name="ORGANIZACION_ID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sioEstaciones" class="sia.bql.hibernate.sioperan.SioEstaciones" fetch="select">
+            <column name="ESTACION_ID" precision="22" scale="0" />
+        </many-to-one>
+        <property name="tipo" type="java.lang.String">
+            <column name="TIPO" length="3" not-null="true" />
+        </property>
+        <property name="estado" type="java.lang.String">
+            <column name="ESTADO" length="3" not-null="true" />
+        </property>
+        <property name="funcion" type="java.lang.String">
+            <column name="FUNCION" length="1000" />
+        </property>
+        <property name="fechaCreacion" type="java.util.Date">
+            <column name="FECHA_CREACION" length="7" not-null="true" />
+        </property>
+        <property name="fechaModificacion" type="java.util.Date">
+            <column name="FECHA_MODIFICACION" length="7" not-null="true" />
+        </property>
+        <property name="fechaTerminacion" type="java.util.Date">
+            <column name="FECHA_TERMINACION" length="7" />
+        </property>
+        <property name="fechaAsignacion" type="java.util.Date">
+            <column name="FECHA_ASIGNACION" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

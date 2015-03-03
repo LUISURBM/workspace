@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.ShmtEcuacionesNq" table="SHMT_ECUACIONES_NQ"  >
+		<id name="ecnqId" type="java.lang.Long">
+			<column name="ECNQ_ID" precision="10" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">ECNQ_TR_ECNQ_ID</param>
+			</generator>
+		</id>
+		<many-to-one name="shmtTablasConversion" class="sia.bql.hibernate.sioperan.ShmtTablasConversion" fetch="select">
+			<column name="ECNQ_TBCN_ID" precision="10" scale="0" />
+		</many-to-one>
+		<property name="ecnqTipo" type="java.lang.String">
+			<column name="ECNQ_TIPO" length="1" />
+		</property>
+		<property name="ecnqA" type="java.lang.String">
+			<column name="ECNQ_A" length="10" />
+		</property>
+		<property name="ecnqB" type="java.lang.String">
+			<column name="ECNQ_B" length="20" />
+		</property>
+		<property name="ecnqC" type="java.lang.String">
+			<column name="ECNQ_C" length="20" />
+		</property>
+		<many-to-one name="idtUsers" class="sia.bql.hibernate.sioperan.IdtUsers" fetch="select">
+			<column name="ECNQ_USR_ID" precision="12" scale="0" not-null="true"/>
+		</many-to-one>
+		<property name="ecnqTimestamp" type="java.util.Date">
+			<column name="ECNQ_TIMESTAMP" length="7" />
+		</property>
+		<property name="ecnqR" type="java.lang.String">
+			<column name="ECNQ_R" length="10" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+	<h:panelGrid styleClass="panel_datos_filtro" columns="6"
+		id="datosFiltro">
+		<ace:maskedEntry id="fini" mask="9999" size="4"
+			value="#{BeanFachada.fechaInicio}"
+			label="#{mensajes.lbl_fecha} #{mensajes.lbl_inicial}" required="true"
+			labelPosition="top">
+			<ace:ajax execute="@this" render="fini" />
+		</ace:maskedEntry>
+		<ace:maskedEntry id="ffin" mask="9999" size="4"
+			label="#{mensajes.lbl_fecha} #{mensajes.lbl_final}" required="true"
+			value="#{BeanFachada.fechaFin}" labelPosition="top">
+			<ace:ajax execute="@this" render="ffin" />
+		</ace:maskedEntry>
+		<ace:simpleSelectOneMenu value="#{BeanFachada.tipoReporte}"
+			required="true" tabindex="-1" immediate="true"
+			label="#{mensajes.lbl_tipo_reporte}" labelPosition="top">
+			<f:selectItem itemLabel="DECADAL" itemValue="DCD" />
+			<f:selectItem itemLabel="MULTIANUAL MENSUAL" itemValue="MAM" />
+			<ace:ajax execute="@this" render="ffin" />
+		</ace:simpleSelectOneMenu>
+		<ace:simpleSelectOneMenu value="#{BeanFachada.grupoMedicion}"
+			required="true" label="#{mensajes.lbl_grupo_medicion}"
+			labelPosition="top">
+			<f:selectItems value="#{BeanFachada.gruposMedicion}" />
+			<ace:ajax execute="@this" render="variables" />
+		</ace:simpleSelectOneMenu>
+		<ace:simpleSelectOneMenu value="#{BeanFachada.variable}"
+			required="true" id="variables" label="#{mensajes.lbl_variable}"
+			labelPosition="top">
+			<f:selectItems value="#{BeanFachada.variables}" />
+		</ace:simpleSelectOneMenu>
+		<ace:linkButton id="linkBttnStatic" value="GENERAR"
+			action="#{BeanFachada.getReportNavigation}">
+			<ace:ajax execute="@all" render="@all" />
+			<f:param name="grp" value="aceMenu" />
+			<f:param name="exp" value="pushButton" />
+		</ace:linkButton>
+		
+
+	</h:panelGrid>
+
+</ui:composition>

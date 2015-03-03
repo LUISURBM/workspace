@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.SioOrganizacion" table="SIO_ORGANIZACION">
+		<id name="organizacionId" type="java.lang.Long">
+			<column name="ORGANIZACION_ID" precision="22" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one class="sia.bql.hibernate.sioperan.SioOrganizacion"
+			fetch="select" name="sioOrganizacion">
+			<column name="ORGANIZACION_PADRE_ID" precision="22" scale="0" />
+		</many-to-one>
+		<property generated="never" lazy="false" name="fechaModificacion"
+			type="java.util.Date">
+			<column length="7" name="FECHA_MODIFICACION" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="tipo"
+			type="java.lang.String">
+			<column length="3" name="TIPO" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="estado"
+			type="java.lang.String">
+			<column length="3" name="ESTADO" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="email"
+			type="java.lang.String">
+			<column length="200" name="EMAIL" />
+		</property>
+		<property generated="never" lazy="false" name="clase"
+			type="java.lang.String">
+			<column length="3" name="CLASE" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="fechaRegistro"
+			type="java.util.Date">
+			<column length="7" name="FECHA_REGISTRO" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="razonSocial"
+			type="java.lang.String">
+			<column length="300" name="RAZON_SOCIAL" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="fechaRetiro"
+			type="java.util.Date">
+			<column length="7" name="FECHA_RETIRO" />
+		</property>
+		<property generated="never" lazy="false" name="direccion"
+			type="java.lang.String">
+			<column length="200" name="DIRECCION" />
+		</property>
+		<property generated="never" lazy="false" name="fax"
+			type="java.lang.String">
+			<column length="100" name="FAX" />
+		</property>
+		<property generated="never" lazy="false" name="web"
+			type="java.lang.String">
+			<column length="100" name="WEB" />
+		</property>
+		<property generated="never" lazy="false" name="telefono"
+			type="java.lang.String">
+			<column length="100" name="TELEFONO" />
+		</property>
+		<property generated="never" lazy="false" name="sector"
+			type="java.lang.String">
+			<column length="3" name="SECTOR" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="nit"
+			type="java.lang.String">
+			<column length="30" name="NIT" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="fechaCreacion"
+			type="java.util.Date">
+			<column length="7" name="FECHA_CREACION" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="fechaAplicacion"
+			type="java.util.Date">
+			<column length="7" name="FECHA_APLICACION" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="sigla"
+			type="java.lang.String">
+			<column length="50" name="SIGLA" />
+		</property>
+
+		<set inverse="true" name="sioOrganizacions" sort="unsorted">
+			<key>
+				<column name="ORGANIZACION_PADRE_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="sia.bql.hibernate.sioperan.SioOrganizacion" />
+		</set>
+		<set name="sioRolesOrganizacionPmas" inverse="true">
+			<key>
+				<column name="ORGANIZACION_ID" precision="22" scale="0"
+					not-null="true" />
+			</key>
+			<one-to-many class="sia.bql.hibernate.sioperan.SioRolesOrganizacionPma" />
+		</set>
+	</class>
+	<query name="estacionesPorAreaOperativa">
+	<![CDATA[
+		select distinct(o.razonSocial)
+		from SioOrganizacion as o
+		where o.tipo = 'AOP'
+		order by o.razonSocial asc
+		]]>
+	</query>
+<query name="codigoOrganizacion">
+ <![CDATA[
+		select organizacionId
+		from SioOrganizacion as o
+		where o.tipo = 'AOP'
+		and o.razonSocial =:razon
+		order by o.razonSocial asc
+		]]>
+		<query-param name="razon" type="java.lang.String" />
+	</query>
+</hibernate-mapping>

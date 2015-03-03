@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+	<ice:panelPopup modal="true" autoCentre="false" draggable="false"
+		style="z-index: 51;position:relative; float:center;left:0px; top:30px; font-size:12px;"
+		id="panelPopupNuevo" visible="#{BeanFachada.visibleNuevo}"
+		rendered="#{BeanFachada.visibleNuevo}">
+		<f:facet name="body">
+
+			<ice:panelGrid columns="1"
+				style="border: 4px solid #087f96; float:center;	left: 10px; top:120px;background-color:#D3DEE5;width:#{BeanFachada.grupoNuevo}? 1200px : auto;">
+
+				<h:panelGrid columns="3"
+					style="top: 100px;text-decoration: bold; font-style: normal; color: BLUE; left:10px;z-index:3;">
+					<ice:commandButton actionListener="#{BeanFachada.nuevoEvent}"
+						style="border: 4px solid blue;height: 32px; height: 32px;"
+						accesskey="C"
+						title="#{mensajes.lbl_editar} #{mensajes.lbl_tt_grupo} / #{mensajes.lbl_estacion}"
+						image="#{BeanFachada.nuevo}" />
+					<ice:outputLabel value="#{BeanFachada.mensajePupop}"
+						style="font-size:20px; color:BLUE;" />
+					<ace:submitMonitor id="submitMonitorNew"
+						activeLabel="#{mensajes.lbl_tt_cargando}"
+						serverErrorLabel="#{mensajes.lbl_tt_serverErrorLabel}"
+						networkErrorLabel="#{mensajes.lbl_tt_networkErrorLabel}"
+						sessionExpiredLabel="#{mensajes.lbl_tt_sessionExpiredLabel}"
+						blockUI="@none" />
+
+					<ace:message id="messageBack" for="pupopEvent6"
+						initEffect="pulsate" changeEffect="scale" />
+					<ace:message id="messageAdd" for="addBtnEstacion"
+						initEffect="pulsate" changeEffect="scale" />
+
+				</h:panelGrid>
+				<h:panelGrid columns="3" style="top:80px;">
+
+
+					<ice:panelGrid columns="5" id="panel1"
+						rendered="#{BeanFachada.grupoNuevo}">
+
+						<ice:panelGrid columns="1" id="panel3">
+							<ace:autoCompleteEntry required="false" size="77"
+								direction="down" width="200"
+								label="#{mensajes.lbl_area} #{mensajes.lbl_hidrografica}"
+								labelPosition="top"  
+								value="#{BeanFachada.selectedAreaHidrografica}"
+								textChangeListener="#{BeanFachada.listaFiltroIncluirGrupo}"
+								filterMatchMode="contains">
+								<f:selectItems value="#{BeanFachada.itemsAreaHidrografica}" />
+							</ace:autoCompleteEntry>
+							<ace:autoCompleteEntry required="false" immediate="true"
+								size="77" direction="down" width="200"
+								label="#{mensajes.lbl_zona} #{mensajes.lbl_hidrografica}"
+								labelPosition="top"
+								value="#{BeanFachada.selectedZonaHidrografica}"
+								rendered="#{BeanFachada.validaAreaHidrografica}"
+								textChangeListener="#{BeanFachada.listaFiltroZonaIncluirGrupo}"
+								filterMatchMode="contains">
+								<f:selectItems
+									value="#{BeanFachada.itemsZonasPorAreaHidrografica}" />
+							</ace:autoCompleteEntry>
+							<ace:autoCompleteEntry immediate="true" required="false"
+								size="77" direction="down" width="200"
+								label="#{mensajes.lbl_sub_zona} #{mensajes.lbl_hidrografica}"
+								labelPosition="top"
+								textChangeListener="#{BeanFachada.listaFiltroSbZonaIncluirGrupo}"
+								rendered="#{BeanFachada.validaZonaHidrografica}"
+								value="#{BeanFachada.selectedSbZonaHidrografica}"
+								filterMatchMode="contains">
+								<f:selectItems value="#{BeanFachada.itemsSubZonasHidrografica}" />
+							</ace:autoCompleteEntry>
+							<ace:autoCompleteEntry required="false" size="77"
+								immediate="true" direction="down" width="200"
+								label="#{mensajes.lbl_tt_grupo}"
+								labelPosition="top"
+								rendered="#{BeanFachada.validaSbZonaHidrografica}"
+								value="#{BeanFachada.selectedGrupo}" filterMatchMode="contains">
+								<f:selectItems
+									value="#{BeanFachada.itemsGruposBalanceAreaCuenca}" />
+							</ace:autoCompleteEntry>
+
+						</ice:panelGrid>
+						<ice:panelGrid columns="1" id="panel5"
+							rendered="#{BeanFachada.validaGrupoNuevo}">
+							<h:form id="file-form">
+								<ace:fileEntry id="fileEntry" relativePath="/upload/"
+									maxFileCount="1"
+									maxFileCountMessage="Limitado a 1 archivo concurrentemente."
+									fileEntryListener="#{BeanFachada.loadListener}"
+									maxFileSize="691456" title="#{mensajes.lbl_tt_fileEntry}"
+									maxFileSizeMessage="Archivo supera el tamaño determinado."
+									maxTotalSize="874368"
+									maxTotalSizeMessage="Archivo supera el tamaño determinado."
+									required="false" useOriginalFilename="true" immediate="false"
+									useSessionSubdir="false" autoUpload="true"
+									rendered="#{BeanFachada.visibleNuevo}" multiple="false" />
+								<h:commandButton id="submitBtnFile" type="submit"
+									title="#{mensajes.lbl_tt_fileEntry}" value="Subir imagen" />
+								<ace:message id="messageFile" for="fileEntry"
+									title="#{mensajes.lbl_tt_fileEntry}" initEffect="pulsate"
+									changeEffect="scale" />
+							</h:form>
+
+							<ice:commandButton id="boton2"
+								image="./upload/#{BeanFachada.nuevoGrafo.fileName}"
+								title="#{mensajes.lbl_tt_cargue}"
+								actionListener="#{BeanFachada.limparImagen }"
+								style="border: 4px solid orange;overflow: auto;height: 30px; width: 30px;"
+								visible="true" value="#{mensajes.lbl_tt_diagrama_no_disponible}" />
+						</ice:panelGrid>
+					</ice:panelGrid>
+					<ice:panelGrid columns="1" id="panelEst1"
+						rendered="#{!BeanFachada.grupoNuevo}">
+						<ice:panelGrid columns="2">
+							<ace:autoCompleteEntry required="false" size="77"
+								id="selectedGrupoNuevaEstacion" direction="down" width="200"
+								immediate="true" label="#{mensajes.lbl_tt_grupo}"
+								labelPosition="top"
+								value="#{BeanFachada.selectedGrupoNuevaEstacion}"
+								textChangeListener="#{BeanFachada.listaEstacionesSelectedGrupo}"
+								filterMatchMode="contains">
+								<f:selectItems value="#{BeanFachada.itemsGruposBalanceCaudal}" />
+							</ace:autoCompleteEntry>
+							<ace:selectMenu value="#{BeanFachada.nuevoVariable}" label="#{mensajes.lbl_tt_variable}"
+								labelPosition="top"
+								id="menuVariable" title="#{mensajes.lbl_tt_variable }"
+								valueChangeListener="#{BeanFachada.nuevoVariable}" width="120">
+								<f:selectItems value="#{BeanFachada.itemsVariables}" />
+								<ace:ajax execute="@all" render="@all" />
+							</ace:selectMenu>
+						</ice:panelGrid>
+						<h:panelGroup layout="block" style="padding: 0.5em;">
+
+							<ace:listControl position="MIDDLE" />
+							<ace:list value="#{BeanFachada.itemsEstacionesVariable}"
+								var="estacion" dropGroup="textGroup" selectionMode="single"
+								height="230px"
+								style="display: inline-block; vertical-align: top; height:260px;width:305px;">
+								<f:facet name="header">
+                        Estaciones disponbles
+                    </f:facet>
+
+								<ace:accordion id="accordionMigrateIncluir" collapsible="true"
+									autoHeight="false"
+									style="background-color: transparent important; font-size:12px;"
+									activeIndex="-1">
+									<ace:accordionPane id="estacionesIncluir"
+										title="#{estacion.displayName}">
+										<h:panelGrid columns="3" style="color: blue;">
+											<ace:textAreaEntry id="obsEstacion" rows="1" cols="6"
+												rendered="#{BeanFachada.nuevoVariable == 'nvl'}"
+												value="#{estacion.egbqObservacion}" />
+											<ace:sliderEntry id="sliderEstacion" max="100" min="0"
+												stepPercent="0.1f" length="80px"
+												rendered="#{BeanFachada.nuevoVariable != 'nvl'}"
+												value="#{estacion.nuevoPeso}">
+												<ace:ajax event="slideEnd" execute="@this" render="@form" />
+											</ace:sliderEntry>
+											<ice:outputText value="#{estacion.egbqPeso}"
+												rendered="#{BeanFachada.nuevoVariable != 'nvl'}" />
+											<ice:outputText
+												value="#{mensajes.lbl_tt_categoria} : #{estacion.estacion.categoriaEs}" />
+										</h:panelGrid>
+									</ace:accordionPane>
+								</ace:accordion>
+							</ace:list>
+
+							<ace:list value="#{BeanFachada.itemsEstacionesEnGrupoVariable}"
+								var="estacionExcluir" id="estacionExcluir"
+								style="display: inline-block; vertical-align: top; height:260px;width:305px;"
+								height="230px" selectionMode="single" dropGroup="textGroup">
+								<f:facet name="header">
+                        Estaciones incluidas
+&#126; &Sigma; Peso #{BeanFachada.itemsEstacionesEnGrupoVariable.pesoConjunto()}
+								</f:facet>
+								<ace:accordion id="accordionMigrateExcluir" collapsible="true"
+									autoHeight="false"
+									style="background-color: transparent important; font-size:12px;"
+									activeIndex="-1">
+									<ace:accordionPane id="estacionExcluir"
+										title="#{estacionExcluir.displayName}">
+										<h:panelGrid columns="3" style="color: blue;">
+											<ace:textAreaEntry id="obsEstacion" rows="1" cols="6"
+												maxlength="399" rendered="#{!estacionExcluir.estacionNivel}"
+												value="#{estacionExcluir.egbqObservacion}" />
+											<ace:sliderEntry id="sliderEstacion" max="100" min="0"
+												stepPercent="0.1f" length="60px"
+												rendered="#{estacionExcluir.estacionNivel}"
+												value="#{estacionExcluir.nuevoPeso}">
+												<ace:ajax event="slideEnd" execute="@this" render="@form" />
+											</ace:sliderEntry>
+											<ice:outputText value="#{estacionExcluir.egbqPeso}"
+												title="#{mensajes.lbl_peso}"
+												rendered="#{estacionExcluir.estacionNivel}" />
+											<ice:outputText
+												value="#{mensajes.lbl_tt_categoria} : #{estacionExcluir.estacion.categoriaEs}" />
+
+										</h:panelGrid>
+									</ace:accordionPane>
+								</ace:accordion>
+							</ace:list>
+
+						</h:panelGroup>
+					</ice:panelGrid>
+					<ice:panelGrid columns="1"
+						style="float: center;border: 4px solid #087f96;" id="panel6">
+
+						<ice:commandButton title="#{mensajes.lbl_btn_guardar}"
+							id="addBtnEstacion" accesskey="S"
+							actionListener="#{BeanFachada.guardarEvent}"
+							onclick="if(!confirm('Salvar los datos?')){ alert('Operación abortada!') ; return;}"
+							image="./resources/css/images/save.png" />
+						<ice:commandButton id="btn_quitar" title="Modificar el n�mero"
+							actionListener="#{BeanFachada.actionModify}" rendered="false"
+							onclick="myFunction('#{BeanFachada.numberModify}',this);"
+							style="height: 16px; height: 16px;"
+							image="./resources/css/Imagenes/edit.png" />
+						<ice:commandButton title="#{mensajes.lbl_btn_cancela}"
+							id="pupOpEvent6" actionListener="#{BeanFachada.pupOpEvent}"
+							style="height: 16px; height: 16px;"
+							image="./resources/css/images/back.png" />
+					</ice:panelGrid>
+				</h:panelGrid>
+			</ice:panelGrid>
+
+		</f:facet>
+	</ice:panelPopup>
+
+</ui:composition>

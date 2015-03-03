@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+
+	<h:panelGrid styleClass="panel_datos" columns="1" id="datosEstacion">
+
+		<h:panelGrid columns="5">
+			<ice:outputText value="#{mensajes.lbl_codigo_estacion}" />
+			<ace:maskedEntry id="CampoCodigoEstacion" mask="99999999"
+				binding="#{Estacion.codigoEstacion}" required="true" onblur="this.form.submit()"
+				valueChangeListener="#{Estacion.buscarEstacion}" maxlength="8">
+				<f:ajax execute="@this" render="panelEnc" />
+			</ace:maskedEntry>
+			<ice:outputText value="#{mensajes.lbl_nombre_estacion}"
+				rendered="#{Estacion.estacionVisible}" />
+			<ice:inputText disabled="true" rendered="#{Estacion.estacionVisible}"
+				binding="#{Estacion.inputnombreEstacion}" style="width: 170px" />
+			<ice:outputText value="#{Estacion.mensaje}" style="color: red"
+				rendered="#{Estacion.mensajeVisible}" />
+			<h:message for="CampoCodigoEstacion"></h:message>
+		</h:panelGrid>
+		<h:panelGrid columns="8" rendered="#{Estacion.estacionVisible}" id="panelEnc">
+			<ice:outputText value="#{mensajes.lbl_longitud}" />
+			<ice:inputText disabled="true" binding="#{Estacion.inputlongitud}" />
+			<ice:outputText value="#{mensajes.lbl_area_operativa}" />
+			<ice:inputText disabled="true"
+				binding="#{Estacion.inputareaOperativa}" />
+			<ice:outputText value="#{mensajes.lbl_departamento}" />
+			<ice:inputText disabled="true"
+				binding="#{Estacion.inputdepartamento}" />
+			<ice:outputText
+				value="#{mensajes.lbl_area} #{mensajes.lbl_hidrografica}" />
+			<ice:inputText disabled="true"
+				binding="#{Estacion.inputareaHidrografica}" />
+			<ice:outputText value="#{mensajes.lbl_latitud}" />
+			<ice:inputText disabled="true" binding="#{Estacion.inputlatitud}" />
+			<ice:outputText value="#{mensajes.lbl_entidad}" />
+			<ice:inputText disabled="true" binding="#{Estacion.inputentidad}" />
+			<ice:outputText value="#{mensajes.lbl_municipio}" />
+			<ice:inputText disabled="true" binding="#{Estacion.inputmunicipio}" />
+			<ice:outputText
+				value="#{mensajes.lbl_zona} #{mensajes.lbl_hidrografica}" />
+			<ice:inputText disabled="true"
+				binding="#{Estacion.inputzonaHidrografica}" />
+			<ice:outputText value="#{mensajes.lbl_elevacion}" />
+			<ice:inputText disabled="true" binding="#{Estacion.inputelevacion}" />
+			<ice:outputText value="#{mensajes.lbl_categoria}" />
+			<ice:inputText disabled="true" binding="#{Estacion.inputcategoria}" />
+			<ice:outputText value="#{mensajes.lbl_corriente}" />
+			<ice:inputText disabled="true" binding="#{Estacion.inputcorriente}" />
+			<ice:outputText
+				value="#{mensajes.lbl_sub_zona} #{mensajes.lbl_hidrografica}" />
+			<ice:inputText disabled="true"
+				binding="#{Estacion.inputsubzonaHidrografica}" />
+		</h:panelGrid>
+	</h:panelGrid>
+
+
+</ui:composition>

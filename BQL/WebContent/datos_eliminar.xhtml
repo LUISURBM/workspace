@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+	<ice:panelPopup modal="true" autoCentre="false" draggable="false"
+		style="z-index: 51;position:absolute; float:center;left:0px; top:0px; font-size:8px;overflow-y:scroll"
+		id="panelPopup" visible="#{BeanFachada.visibleEliminar}"
+		rendered="#{BeanFachada.visibleEliminar}">
+		<f:facet name="body">
+			<ice:panelGrid columns="1"
+				style="border: 4px solid #087f96; position:fixed; float:center;	left: 80px; top:20px;background-color:#D3DEE5;">
+				<ice:panelGrid columns="3"
+					style="top: 100px;text-decoration: bold; font-style: normal; color: white; left:10px;z-index:3;">
+					<ice:commandButton actionListener="#{BeanFachada.nuevoEvent}"
+						style="border: 4px solid blue;height: 32px; height: 32px;"
+						title="#{mensajes.lbl_editar} #{mensajes.lbl_tt_grupo} / #{mensajes.lbl_estacion}"
+						image="#{BeanFachada.nuevo}" />
+					<ice:outputLabel style="font-size:20px; color:white;"
+						value="#{BeanFachada.mensajePupop}" />
+					<ace:submitMonitor id="submitMonitorDel"
+						activeLabel="#{mensajes.lbl_tt_cargando}"
+						serverErrorLabel="#{mensajes.lbl_tt_serverErrorLabel}"
+						networkErrorLabel="#{mensajes.lbl_tt_networkErrorLabel}"
+						sessionExpiredLabel="#{mensajes.lbl_tt_sessionExpiredLabel}"
+						blockUI="@none" />
+
+				</ice:panelGrid>
+				<ice:panelGrid columns="5" style="font-size:12px;">
+
+					<ice:panelGrid columns="1">
+
+						<ace:autoCompleteEntry required="false" size="140"
+							direction="down" width="200"
+							rendered="#{BeanFachada.visiblePupOpEstacion}"
+							label="#{mensajes.lbl_tt_grupo}"
+							labelPosition="top" value="#{BeanFachada.selectedGrupoBorrado}"
+							filterMatchMode="contains">
+							<f:selectItems value="#{BeanFachada.itemsGruposBalanceArea}" />
+							<ace:ajax execute="@this" render="@all" />
+						</ace:autoCompleteEntry>
+						<h:panelGroup layout="block" style="padding: 0.5em;">
+							<ace:list id="listEstaciones"
+								value="#{BeanFachada.itemsEstacionesEnGruposBalanceArea}"
+								selections="#{BeanFachada.itemsEstacionesEnGruposBalanceAreaBorrado}"
+								height="320px"
+								style="display: inline-block; vertical-align: top; height:320px;width:535px;overflow-y:scroll"
+								rendered="#{BeanFachada.visiblePupOpEstacion}"
+								selectionMode="multiple" dragging="false" />
+
+							<ace:list id="listGrupos"
+								value="#{BeanFachada.itemsGruposBalanceArea}" height="320px"
+								style="display: inline-block; vertical-align: top; height:320px;width:505px;"
+								rendered="#{!BeanFachada.visiblePupOpEstacion}"
+								selections="#{BeanFachada.itemsGruposBalanceAreaBorrado}"
+								selectionMode="multiple" dragging="false" />
+						</h:panelGroup>
+					</ice:panelGrid>
+					<ice:panelGrid columns="1" style="float: center;">
+						<ace:message id="deleteMsg" for="btn_quitar" initEffect="pulsate"
+							changeEffect="scale" />
+						<ice:commandButton id="btn_quitar"
+							title="#{mensajes.lbl_quitar} LA #{mensajes.lbl_seleccion}"
+							actionListener="#{BeanFachada.eventEliminar}"
+							onclick="if(!confirm('Eliminar los datos?')){ alert('Operación abortada!'); return false;} else if(!confirm('Eliminar las estaciones asociadas?')){ alert('Operación abortada!') ; return false; }"
+							style="height: 16px; height: 16px;"
+							image="./resources/css/Imagenes/eliminar.png" />
+						<ice:commandButton title="#{mensajes.lbl_btn_cancela}"
+							actionListener="#{BeanFachada.pupOpEventEliminar}"
+							style="height: 16px; height: 16px;"
+							image="./resources/css/images/back.png" />
+					</ice:panelGrid>
+				</ice:panelGrid>
+			</ice:panelGrid>
+		</f:facet>
+	</ice:panelPopup>
+</ui:composition>

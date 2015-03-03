@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+    <persistence-unit name="crm_pu">
+        <description>CRM Persistence Unit. HIMEDESA</description>
+        <jta-data-source>java:jboss/datasources/dsHIDESADEV</jta-data-source>
+        <properties>
+            <property name="jboss.as.jpa.providerModule" value="org.hibernate:3" />
+        </properties>
+    </persistence-unit>
+</persistence>

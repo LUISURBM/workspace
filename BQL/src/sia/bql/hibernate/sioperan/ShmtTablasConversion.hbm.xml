@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.ShmtTablasConversion" table="SHMT_TABLAS_CONVERSION"  >
+		<id name="tbcnId" type="java.lang.Long">
+			<column name="TBCN_ID" precision="10" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<property name="tbcnTipo" type="java.lang.Long">
+			<column name="TBCN_TIPO" precision="2" scale="0" />
+		</property>
+		<property name="tbcnEstacionId" type="java.lang.Long">
+			<column name="TBCN_ESTACION_ID" precision="22" scale="0" />
+		</property>
+		<property name="tbcnInicioVig" type="java.util.Date">
+			<column name="TBCN_INICIO_VIG" precision="6" scale="0" />
+		</property>
+		<property name="tbcnFinVig" type="java.util.Date">
+			<column name="TBCN_FIN_VIG" precision="6" scale="0" />
+		</property>
+		<property name="tbcnCodigoSisdhim" type="java.lang.Long">
+			<column name="TBCN_CODIGO_SISDHIM" precision="4" scale="0" />
+		</property>
+		<property name="tbcnEstado" type="java.lang.String">
+			<column name="TBCN_ESTADO" length="20" />
+		</property>
+		<property name="tbcnTimestamp" type="java.util.Date">
+			<column name="TBCN_TIMESTAMP" length="7" />
+		</property>
+		<many-to-one name="idtUsers" class="sia.bql.hibernate.sioperan.IdtUsers" fetch="select">
+			<column name="TBCN_USR_ID" precision="12" scale="0" not-null="true" />
+		</many-to-one>
+		<set name="shmtEcuacionesNqs" inverse="true">
+			<key>
+				<column name="ECNQ_TBCN_ID" precision="10" scale="0" />
+			</key>
+			<one-to-many class="sia.bql.hibernate.sioperan.ShmtEcuacionesNq" />
+		</set>
+	</class>
+	<query name="codigoSisdhim">
+    	<![CDATA[	
+    	select max(tbcnCodigoSisdhim) 
+    	from ShmtTablasConversion 
+    	where tbcnEstacionId = :codEstacion and tbcnTipo = :tipo ]]>
+		<query-param name="codEstacion" type="java.lang.Long" />
+		<query-param name="tipo" type="java.lang.Long" />
+	</query>
+
+	<query name="codigoSisdhimActual">
+    	<![CDATA[	
+    	select tc.tbcnCodigoSisdhim
+    	from ShmtTablasConversion as tc
+    	where tc.tbcnEstacionId = :codEstacion 
+    	and tc.tbcnTipo = :tipo 
+		and tc.tbcnInicioVig = :fechaInicio
+		and tc.tbcnFinVig = :fechaFin
+    	]]>
+		<query-param name="codEstacion" type="java.lang.Long" />
+		<query-param name="tipo" type="java.lang.Long" />
+		<query-param name="fechaInicio" type="java.util.Date" />
+		<query-param name="fechaFin" type="java.util.Date" />
+	</query>
+
+	<query name="codigoEstacion">
+		<![CDATA[
+			select conv 
+			from ShmtTablasConversion as conv 
+			where conv.tbcnEstacionId = :estacion
+			order by conv.tbcnId asc
+		]]>
+		<query-param name="estacion" type="java.lang.Long" />
+	</query>
+
+	<query name="obtenerEcuacionesPorEstacionYTipo">    	
+    	<![CDATA[	
+   			select t from ShmtTablasConversion as t 
+   			where t.tbcnEstacionId = :estacion
+			and t.tbcnTipo = :tipo
+			order by t.tbcnEstacionId asc
+		]]>
+		<query-param name="estacion" type="java.lang.Long" />
+		<query-param name="tipo" type="java.lang.Long" />
+	</query>
+
+	<query name="obtenerEcuacionesPorAreaOperativa">
+	<![CDATA[
+		select tc from ShmtTablasConversion tc, SioRolesOrganizacionPma rop
+		where tc.tbcnEstacionId = rop.sioEstaciones.estacionId
+		and tc.tbcnTipo = :tipo
+		and rop.sioOrganizacion.razonSocial = decode(:areaOperativa,'TODAS',rop.sioOrganizacion.razonSocial,:areaOperativa)
+		order by rop.sioOrganizacion.razonSocial asc,rop.sioEstaciones.codigoCatalogo asc, 
+		tc.tbcnCodigoSisdhim asc	
+	]]>
+		<query-param name="areaOperativa" type="java.lang.String" />
+		<query-param name="codigoEstacion" type="java.lang.Long" />
+	</query>
+
+	<query name="obtenerTablasYEcuacionesPorEstacionYTipo">    	
+    	<![CDATA[	
+    			select e.shmtTablasConversion, e 
+    			from ShmtEcuacionesNq e
+    			where e.shmtTablasConversion.tbcnEstacionId = :estacion
+				and e.shmtTablasConversion.tbcnTipo = :tipo
+				order by e.shmtTablasConversion.tbcnEstacionId asc
+		]]>
+		<query-param name="estacion" type="java.lang.Long" />
+		<query-param name="tipo" type="java.lang.Long" />
+	</query>
+	<query name="obtenerFechaInicioPrimeraEcuacionPorEstacionPorTipoEcuacion">
+    	<![CDATA[	
+			select tc.tbcnInicioVig 
+			from ShmtTablasConversion as tc
+			where tc.tbcnEstacionId = :estacionId
+			and tc.tbcnTipo = :tipoEcuacion
+			and tc.tbcnCodigoSisdhim = 1
+		]]>
+		<query-param name="estacionId" type="java.lang.Long" />
+		<query-param name="tipoEcuacion" type="java.lang.Long" />
+	</query>
+	<query name="fechaCierreEcuacionReciente">
+		<![CDATA[
+			select max(eq.shmtTablasConversion.tbcnFinVig)
+			from ShmtEcuacionesNq as eq
+			where eq.shmtTablasConversion.tbcnEstacionId = :estacion
+			and eq.shmtTablasConversion.tbcnTipo = :tipo
+		]]>
+		<query-param name="estacion" type="java.lang.Long" />
+		<query-param name="tipo" type="java.lang.Long" />
+	</query>
+	<query name="obtenerTablaYEcuacionActiva">
+		<![CDATA[
+			select e from ShmtTablasConversion e
+			where e.tbcnEstacionId =:estacion
+			and e.tbcnEstado = 'A'
+			and e.tbcnTipo =:tipo
+		]]>
+		<query-param name="estacion" type="java.lang.Long" />
+		<query-param name="tipo" type="java.lang.Long" />
+	</query>
+
+	<query name="obtenerCorrespondenciaEntreFechas">
+		<![CDATA[
+			select e from ShmtTablasConversion e
+			where e.tbcnEstacionId =:estacion
+			and e.tbcnTipo =:tipo
+			and e.tbcnInicioVig =:fechaInicio
+			and e.tbcnFinVig =:fechaCierre
+		]]>
+		<query-param name="estacion" type="java.lang.Long" />
+		<query-param name="tipo" type="java.lang.Long" />
+		<query-param name="fechaInicio" type="java.util.Date" />
+		<query-param name="fechaCierre" type="java.util.Date" />
+	</query>
+	<query name="primerCodigoSisdhim">
+    	<![CDATA[	
+    	select min(tbcnCodigoSisdhim) 
+    	from ShmtTablasConversion 
+    	where tbcnEstacionId = :codEstacion and tbcnTipo = :tipo ]]>
+		<query-param name="codEstacion" type="java.lang.Long" />
+		<query-param name="tipo" type="java.lang.Long" />
+	</query>
+</hibernate-mapping>

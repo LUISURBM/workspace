@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.SiovEstacionesId" table="SIOV_ESTACIONES"  >
+		<id name="idEs" type="java.lang.Long">
+			<column name="ID_ES" precision="22" scale="0" />
+		</id>
+		<property name="nombreEs" type="java.lang.String">
+			<column name="NOMBRE_ES" length="300" />
+		</property>
+		<property name="codCatalogoEs" type="java.lang.String">
+			<column name="COD_CATALOGO_ES" length="50" />
+		</property>
+		<property name="codInternacionalEs" type="java.lang.String">
+			<column name="COD_INTERNACIONAL_ES" length="50" />
+		</property>
+		<property name="codInternoEs" type="java.lang.String">
+			<column name="COD_INTERNO_ES" length="50" />
+		</property>
+		<property name="codReporteEs" type="java.lang.String">
+			<column name="COD_REPORTE_ES" length="50" />
+		</property>
+		<property name="codOaciEs" type="java.lang.String">
+			<column name="COD_OACI_ES" length="50" />
+		</property>
+		<property name="codWmoEs" type="java.lang.String">
+			<column name="COD_WMO_ES" length="50" />
+		</property>
+		<property name="categoriaEs" type="java.lang.String">
+			<column name="CATEGORIA_ES" length="3" />
+		</property>
+		<property name="descCategoria" type="java.lang.String">
+			<column name="DESC_CATEGORIA" length="250" />
+		</property>
+		<property name="claseEs" type="java.lang.String">
+			<column name="CLASE_ES" length="3" />
+		</property>
+		<property name="descClase" type="java.lang.String">
+			<column name="DESC_CLASE" length="250" />
+		</property>
+		<property name="tipoEs" type="java.lang.String">
+			<column name="TIPO_ES" length="3" />
+		</property>
+		<property name="descTipo" type="java.lang.String">
+			<column name="DESC_TIPO" length="250" />
+		</property>
+		<property name="escalaEs" type="java.lang.String">
+			<column name="ESCALA_ES" length="3" />
+		</property>
+		<property name="descEscala" type="java.lang.String">
+			<column name="DESC_ESCALA" length="250" />
+		</property>
+		<property name="estadoEs" type="java.lang.String">
+			<column name="ESTADO_ES" length="3" />
+		</property>
+		<property name="descEstado" type="java.lang.String">
+			<column name="DESC_ESTADO" length="250" />
+		</property>
+		<property name="fechaAplicacionEs" type="java.util.Date">
+			<column name="FECHA_APLICACION_ES" length="7" />
+		</property>
+		<property name="objInstalacionEs" type="java.lang.String">
+			<column name="OBJ_INSTALACION_ES" length="3" />
+		</property>
+		<property name="descObjetivoInst" type="java.lang.String">
+			<column name="DESC_OBJETIVO_INST" length="250" />
+		</property>
+		<property name="comenInstalacionEs" type="java.lang.String">
+			<column name="COMEN_INSTALACION_ES" length="1000" />
+		</property>
+		<property name="satEnlaceEs" type="java.lang.String">
+			<column name="SAT_ENLACE_ES" length="100" />
+		</property>
+		<property name="satNombreEs" type="java.lang.String">
+			<column name="SAT_NOMBRE_ES" length="50" />
+		</property>
+		<property name="satVentanaEs" type="java.lang.String">
+			<column name="SAT_VENTANA_ES" length="100" />
+		</property>
+		<property name="satProtocoloEs" type="java.lang.String">
+			<column name="SAT_PROTOCOLO_ES" length="3" />
+		</property>
+		<property name="descSatProtocolo" type="java.lang.String">
+			<column name="DESC_SAT_PROTOCOLO" length="250" />
+		</property>
+		<property name="satTipoEs" type="java.lang.String">
+			<column name="SAT_TIPO_ES" length="3" />
+		</property>
+		<property name="descSatTipo" type="java.lang.String">
+			<column name="DESC_SAT_TIPO" length="250" />
+		</property>
+		<property name="alturaReferenciaEs" type="java.lang.Double">
+			<column name="ALTURA_REFERENCIA_ES" precision="20" />
+		</property>
+		<property name="gradosLatitud" type="java.lang.Long">
+			<column name="GRADOS_LATITUD" precision="22" scale="0" />
+		</property>
+		<property name="minutosLatitud" type="java.lang.Long">
+			<column name="MINUTOS_LATITUD" precision="22" scale="0" />
+		</property>
+		<property name="segundosLatitud" type="java.lang.Long">
+			<column name="SEGUNDOS_LATITUD" precision="22" scale="0" />
+		</property>
+		<property name="direccionLatitud" type="java.lang.String">
+			<column name="DIRECCION_LATITUD" length="3" />
+		</property>
+		<property name="gradosLongitud" type="java.lang.Long">
+			<column name="GRADOS_LONGITUD" precision="22" scale="0" />
+		</property>
+		<property name="minutosLongitud" type="java.lang.Long">
+			<column name="MINUTOS_LONGITUD" precision="22" scale="0" />
+		</property>
+		<property name="segundosLongitud" type="java.lang.Long">
+			<column name="SEGUNDOS_LONGITUD" precision="22" scale="0" />
+		</property>
+		<property name="direccionLongitud" type="java.lang.String">
+			<column name="DIRECCION_LONGITUD" length="3" />
+		</property>
+		<property name="altitud" type="java.lang.Long">
+			<column name="ALTITUD" precision="22" scale="0" />
+		</property>
+		<property name="nombrePma" type="java.lang.String">
+			<column name="NOMBRE_PMA" length="200" />
+		</property>
+		<property name="estadoPma" type="java.lang.String">
+			<column name="ESTADO_PMA" length="3" />
+		</property>
+		<property name="idDv" type="java.lang.Long">
+			<column name="ID_DV" precision="22" scale="0" />
+		</property>
+		<property name="codigoDivipola" type="java.lang.String">
+			<column name="CODIGO_DIVIPOLA" length="50" />
+		</property>
+		<property name="descDivipola" type="java.lang.String">
+			<column name="DESC_DIVIPOLA" length="500" />
+		</property>
+		<property name="idFgda" type="java.lang.Long">
+			<column name="ID_FGDA" precision="22" scale="0" />
+		</property>
+		<property name="nombreFgda" type="java.lang.String">
+			<column name="NOMBRE_FGDA" length="200" />
+		</property>
+		<property name="idArea" type="java.lang.Long">
+			<column name="ID_AREA" precision="22" scale="0" />
+		</property>
+		<property name="idZona" type="java.lang.Long">
+			<column name="ID_ZONA" precision="22" scale="0" />
+		</property>
+		<property name="idSubzona" type="java.lang.String">
+			<column name="ID_SUBZONA" length="2" />
+		</property>
+		<property name="idCorriente" type="java.lang.String">
+			<column name="ID_CORRIENTE" length="300" />
+		</property>
+		<property name="idOrg" type="java.lang.Long">
+			<column name="ID_ORG" precision="22" scale="0" />
+		</property>
+		<property name="idPma" type="java.lang.Long">
+			<column name="ID_PMA" precision="22" scale="0" />
+		</property>
+		<property name="fechaCreacionEs" type="java.util.Date">
+			<column name="FECHA_CREACION_ES" length="7" />
+		</property>
+		<property name="fechaModificacionEs" type="java.util.Date">
+			<column name="FECHA_MODIFICACION_ES" length="7" />
+		</property>
+	</class>
+	<query name="obtenerCodigoCatalogoEstacion">
+		<![CDATA[
+		select e.codCatalogoEs from SiovEstacionesId e
+		where e.idEs = :codigoEstacion
+		order by e.codCatalogoEs asc
+		]]>
+		<query-param name="codigoEstacion" type="java.lang.Long" />
+	</query>
+</hibernate-mapping>           

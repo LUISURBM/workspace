@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.IdtAbstracLiquidGaugins" table="IDT_ABSTRAC_LIQUID_GAUGINS"  >
+		<id name="ablqId" type="java.lang.Long">
+			<column name="ABLQ_ID" precision="22" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="idtGaugings" class="sia.bql.hibernate.sioperan.IdtGaugings" fetch="select">
+			<column name="ABLQ_GGN_ID" precision="22" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="ablqFmtpCodeMdt" type="java.lang.String">
+			<column name="ABLQ_FMTP_CODE_MDT" length="20" not-null="true" />
+		</property>
+		<property name="ablqFmtpFmlCodeMdt" type="java.lang.String">
+			<column name="ABLQ_FMTP_FML_CODE_MDT" length="20" not-null="true" />
+		</property>
+		<property name="ablqCdlTtl" type="java.lang.Double">
+			<column name="ABLQ_CDL_TTL" precision="8" scale="3" />
+		</property>
+		<property name="ablqPrmWet" type="java.lang.Double">
+			<column name="ABLQ_PRM_WET" precision="8" scale="3" />
+		</property>
+		<property name="ablqFctHyd" type="java.lang.Double">
+			<column name="ABLQ_FCT_HYD" precision="5" scale="3" />
+		</property>
+		<property name="ablqTtlWdt" type="java.lang.Double">
+			<column name="ABLQ_TTL_WDT" precision="7" scale="3" />
+		</property>
+		<property name="ablqSpdAvg" type="java.lang.Double">
+			<column name="ABLQ_SPD_AVG" precision="5" scale="3" />
+		</property>
+		<property name="ablqRdoHyd" type="java.lang.Double">
+			<column name="ABLQ_RDO_HYD" precision="5" scale="3" />
+		</property>
+		<property name="ablqAraTtl" type="java.lang.Double">
+			<column name="ABLQ_ARA_TTL" precision="9" scale="3" />
+		</property>
+		<property name="ablqDepAvg" type="java.lang.Double">
+			<column name="ABLQ_DEP_AVG" precision="5" scale="3" />
+		</property>
+		<property name="ablqFctGmt" type="java.lang.Double">
+			<column name="ABLQ_FCT_GMT" precision="5" scale="3" />
+		</property>
+		<property name="ablqLvlAvg" type="java.lang.Double">
+			<column name="ABLQ_LVL_AVG" precision="4" />
+		</property>
+		<property name="ablqTimestamp" type="java.util.Date">
+			<column name="ABLQ_TIMESTAMP" length="7" not-null="true" />
+		</property>
+		<property name="ablqUserId" type="java.lang.Long">
+			<column name="ABLQ_USER_ID" precision="12" scale="0" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

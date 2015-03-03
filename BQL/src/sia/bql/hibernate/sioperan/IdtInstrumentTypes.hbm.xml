@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.IdtInstrumentTypes" table="IDT_INSTRUMENT_TYPES"  >
+		<id name="intpId" type="java.lang.Long">
+			<column name="INTP_ID" precision="12" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="idtFamilies" class="sia.bql.hibernate.sioperan.IdtFamilies" fetch="select">
+			<column name="INTP_FML_FMTP_CODE" length="20" />
+			<column name="INTP_FML_CODE" length="20" />
+		</many-to-one>
+		<many-to-one name="idtUsers" class="sia.bql.hibernate.sioperan.IdtUsers" fetch="select">
+			<column name="INTP_USR_ID" precision="12" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="intpName" type="java.lang.String">
+			<column name="INTP_NAME" length="100" not-null="true" />
+		</property>
+		<property name="intpDescription" type="java.lang.String">
+			<column name="INTP_DESCRIPTION" length="240" />
+		</property>
+		<property name="intpTimestamp" type="java.util.Date">
+			<column name="INTP_TIMESTAMP" length="7" not-null="true" />
+		</property>
+		<set name="idtInstrumentses" inverse="true">
+			<key>
+				<column name="INS_INTP_ID" precision="12" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="sia.bql.hibernate.sioperan.IdtInstruments" />
+		</set>
+	</class>
+</hibernate-mapping>

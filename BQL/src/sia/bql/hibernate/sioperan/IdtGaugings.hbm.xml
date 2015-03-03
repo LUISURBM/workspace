@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.IdtGaugings" table="IDT_GAUGINGS"  >
+		<id name="ggnId" type="java.lang.Long">
+			<column name="GGN_ID" precision="12" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<property name="ggnSttCode" type="java.lang.String">
+			<column name="GGN_STT_CODE" length="20" not-null="true" />
+		</property>
+		<property name="ggnDate" type="java.util.Date">
+			<column name="GGN_DATE" length="7" not-null="true" />
+		</property>
+		<property name="ggnSections" type="java.lang.Long">
+			<column name="GGN_SECTIONS" precision="5" scale="0" not-null="true" />
+		</property>
+		<property name="ggnFmlFmtpCode" type="java.lang.String">
+			<column name="GGN_FML_FMTP_CODE" length="20" not-null="true" />
+		</property>
+		<property name="ggnFmlCode" type="java.lang.String">
+			<column name="GGN_FML_CODE" length="20" not-null="true" />
+		</property>
+		<property name="ggnInitialHour" type="java.util.Date">
+			<column name="GGN_INITIAL_HOUR" length="7" />
+		</property>
+		<property name="ggnFinalHour" type="java.util.Date">
+			<column name="GGN_FINAL_HOUR" length="7" />
+		</property>
+		<property name="ggnInitialLevel" type="java.lang.Long">
+			<column name="GGN_INITIAL_LEVEL" precision="5" scale="0" />
+		</property>
+		<property name="ggnFinalLevel" type="java.lang.Long">
+			<column name="GGN_FINAL_LEVEL" precision="5" scale="0" />
+		</property>
+		<property name="ggnConversionFactor" type="java.lang.Double">
+			<column name="GGN_CONVERSION_FACTOR" precision="10" scale="5" />
+		</property>
+		<property name="ggnInitialBorder" type="java.lang.String">
+			<column name="GGN_INITIAL_BORDER" length="2" />
+		</property>
+		<property name="ggnLagAngleExists" type="java.lang.String">
+			<column name="GGN_LAG_ANGLE_EXISTS" length="1" />
+		</property>
+		<property name="ggnObservations" type="java.lang.String">
+			<column name="GGN_OBSERVATIONS" length="254" />
+		</property>
+		<property name="ggnFmlTypCode" type="java.lang.String">
+			<column name="GGN_FML_TYP_CODE" length="20" not-null="true" />
+		</property>
+		<property name="ggnFmlTypFmtpCode" type="java.lang.String">
+			<column name="GGN_FML_TYP_FMTP_CODE" length="20" not-null="true" />
+		</property>
+		<property name="ggnInsId" type="java.lang.Long">
+			<column name="GGN_INS_ID" precision="12" scale="0" not-null="true" />
+		</property>
+		<property name="ggnWndId" type="java.lang.Long">
+			<column name="GGN_WND_ID" precision="12" scale="0" />
+		</property>
+		<property name="ggnFmlCodeMethod" type="java.lang.String">
+			<column name="GGN_FML_CODE_METHOD" length="20" not-null="true" />
+		</property>
+		<property name="ggnFmlFmtpCodeMethod" type="java.lang.String">
+			<column name="GGN_FML_FMTP_CODE_METHOD" length="20" not-null="true" />
+		</property>
+		<property name="ggnInspector" type="java.lang.String">
+			<column name="GGN_INSPECTOR" length="50" />
+		</property>
+		<property name="ggnPilotExists" type="java.lang.String">
+			<column name="GGN_PILOT_EXISTS" length="1" />
+		</property>
+		<property name="ggnTempWater" type="java.lang.Long">
+			<column name="GGN_TEMP_WATER" precision="5" scale="0" />
+		</property>
+		<property name="ggnDiameterFuze" type="java.lang.Double">
+			<column name="GGN_DIAMETER_FUZE" precision="5" />
+		</property>
+		<property name="ggnSupNmrSamp14" type="java.lang.Double">
+			<column name="GGN_SUP_NMR_SAMP_1_4" precision="5" />
+		</property>
+		<property name="ggnSupNmrSamp12" type="java.lang.Double">
+			<column name="GGN_SUP_NMR_SAMP_1_2" precision="5" />
+		</property>
+		<property name="ggnSupNmrSamp34" type="java.lang.Double">
+			<column name="GGN_SUP_NMR_SAMP_3_4" precision="5" />
+		</property>
+		<property name="ggnSupCrcSamp14" type="java.lang.Double">
+			<column name="GGN_SUP_CRC_SAMP_1_4" precision="5" />
+		</property>
+		<property name="ggnSupCrcSamp12" type="java.lang.Double">
+			<column name="GGN_SUP_CRC_SAMP_1_2" precision="5" />
+		</property>
+		<property name="ggnSupCrcSamp34" type="java.lang.Double">
+			<column name="GGN_SUP_CRC_SAMP_3_4" precision="5" />
+		</property>
+		<property name="ggnSupVlmSamp14" type="java.lang.Double">
+			<column name="GGN_SUP_VLM_SAMP_1_4" precision="8" scale="4" />
+		</property>
+		<property name="ggnSupVlmSamp12" type="java.lang.Double">
+			<column name="GGN_SUP_VLM_SAMP_1_2" precision="8" scale="4" />
+		</property>
+		<property name="ggnSupVlmSamp34" type="java.lang.Double">
+			<column name="GGN_SUP_VLM_SAMP_3_4" precision="8" scale="4" />
+		</property>
+		<property name="ggnSupTarSamp14" type="java.lang.Double">
+			<column name="GGN_SUP_TAR_SAMP_1_4" precision="8" scale="4" />
+		</property>
+		<property name="ggnSupTarSamp12" type="java.lang.Double">
+			<column name="GGN_SUP_TAR_SAMP_1_2" precision="8" scale="4" />
+		</property>
+		<property name="ggnSupTarSamp34" type="java.lang.Double">
+			<column name="GGN_SUP_TAR_SAMP_3_4" precision="8" scale="4" />
+		</property>
+		<property name="ggnSupWghSamp14" type="java.lang.Double">
+			<column name="GGN_SUP_WGH_SAMP_1_4" precision="8" scale="4" />
+		</property>
+		<property name="ggnSupWghSamp12" type="java.lang.Double">
+			<column name="GGN_SUP_WGH_SAMP_1_2" precision="8" scale="4" />
+		</property>
+		<property name="ggnSupWghSamp34" type="java.lang.Double">
+			<column name="GGN_SUP_WGH_SAMP_3_4" precision="8" scale="4" />
+		</property>
+		<property name="ggnTimestamp" type="java.util.Date">
+			<column name="GGN_TIMESTAMP" length="7" not-null="true" />
+		</property>
+		<many-to-one name="idtUsers" class="sia.bql.hibernate.sioperan.IdtUsers" fetch="select">
+			<column name="GGN_USR_ID" precision="12" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="ggnTtlVlm" type="java.lang.Long">
+			<column name="GGN_TTL_VLM" precision="6" scale="0" />
+		</property>
+		<property name="ggnEquipo" type="java.lang.String">
+			<column name="GGN_EQUIPO" length="10" />
+		</property>
+		<set name="idtAbstracLiquidGauginses" inverse="true">
+			<key>
+				<column name="ABLQ_GGN_ID" precision="22" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="sia.bql.hibernate.sioperan.IdtAbstracLiquidGaugins" />
+		</set>
+	</class>
+</hibernate-mapping>

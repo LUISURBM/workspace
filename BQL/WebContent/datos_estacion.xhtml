@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+	<h:panelGrid styleClass="panel_datos" columns="1" id="datosEstacion">
+		<h:panelGrid columns="8">
+
+			<ace:autoCompleteEntry id="itemAop" required="true"
+				binding="#{BeanFachada.areaOperativa}" 
+				label="Seleccione Área operativa" labelPosition="top"
+				rendered="#{BeanFachada.inicializar}" rows="20" width="150"
+				textChangeListener="#{BeanFachada.listaGruposPorAreaOperativa}"
+				filterMatchMode="contains">
+				<f:selectItems value="#{BeanFachada.itemsAreaOpera}" />
+			</ace:autoCompleteEntry>
+			<ace:autoCompleteEntry id="itemCuenca" required="true" width="150"
+				rendered="#{BeanFachada.balance}" filterMatchMode="contains"  
+				label="Seleccione #{mensajes.lbl_tt_cuenca}" labelPosition="top"
+				rows="11" binding="#{BeanFachada.entryCuenca}">
+				<f:selectItems
+					value="#{BeanFachada.itemsSbZCuencasHidrograficasAop}" />
+			</ace:autoCompleteEntry>
+			<ace:autoCompleteEntry id="itemGroup" rows="10" required="true"  
+				label="Seleccione Grupo" filterMatchMode="contains" width="150"
+				labelPosition="top" rendered="#{BeanFachada.balance}"
+				binding="#{BeanFachada.entryGrupo}" >
+				<f:selectItems value="#{BeanFachada.itemsGruposBalanceCaudal}" />
+			</ace:autoCompleteEntry>
+
+			<ace:dateTimeEntry id="cal1" value="#{BeanFachada.selectedDate1}"
+				rendered="#{BeanFachada.balance}" renderAsPopup="true" 
+				label="Fecha inicio" labelPosition="top" required="true"
+				timeZone="Canada/Mountain" pattern="dd/MM/yyyy">
+			</ace:dateTimeEntry>
+
+			<ace:selectMenu value="#{BeanFachada.periocidad}" width="60"
+				label="Periocidad" labelPosition="top" 
+				rendered="#{BeanFachada.balance}">
+				<f:selectItems value="#{BeanFachada.itemsPeriocidad}" />
+				<ace:ajax execute="@this" render="@this" />
+			</ace:selectMenu>
+			<h:commandButton title="#{mensajes.lbl_btn_consultar}" accesskey="4"
+				actionListener="#{BeanFachada.listaGruposPorAreaOperativa}"
+				rendered="#{BeanFachada.grupos}" style="height: 28px; height: 28px;"
+				image="./resources/css/images/search.png" />
+			<h:commandButton title="#{mensajes.lbl_btn_consultar}" accesskey="4"
+				style="height: 28px; height: 28px;"
+				actionListener="#{BeanFachada.listaEstacionesBalance}"
+				rendered="#{BeanFachada.balance}"
+				image="./resources/css/images/search.png" />
+			<h:commandButton actionListener="#{BeanFachada.pupOpEvent}"
+				title="#{mensajes.lbl_btn_nv}" rendered="#{BeanFachada.grupos}"
+				style="height: 28px; height: 28px;" accesskey="M"
+				image="./resources/css/images/modify.png" />
+			<h:commandButton actionListener="#{BeanFachada.pupOpEventEliminar}"
+				title="#{mensajes.lbl_quitar}" accesskey="D"
+				style="height: 28px; height: 28px;" rendered="#{BeanFachada.grupos}"
+				image="./resources/css/images/eliminar.png" />
+			<h:commandButton actionListener="#{BeanFachada.eventRedirect}"
+				title="#{mensajes.lbl_tt_ir} #{mensajes.lbl_tt_grupo}" accesskey="S"
+				style="height: 28px; height: 28px;"
+				rendered="#{BeanFachada.balance}" type="button" immediate="true"
+				image="./resources/css/images/group.png" />
+			<h:commandButton actionListener="#{BeanFachada.eventRedirect}"
+				title="#{mensajes.lbl_tt_ir} #{mensajes.lbl_tt_balance}"
+				type="button" immediate="true" accesskey="S"
+				style="height: 28px; height: 28px;" rendered="#{BeanFachada.grupos}"
+				image="./resources/css/images/excel.png" />
+			<h:commandButton title="lbl_tt_help" style="width:28px;height:28px;"
+				rendered="false" type="button" immediate="true" accesskey="H"
+				image="./resources/css/Imagenes/wellcome.png" />
+
+		</h:panelGrid>
+		<h:panelGrid columns="8">
+			<ace:messages for="@all" showDetail="true" showSummary="false" />
+		</h:panelGrid>
+	</h:panelGrid>
+
+
+</ui:composition>

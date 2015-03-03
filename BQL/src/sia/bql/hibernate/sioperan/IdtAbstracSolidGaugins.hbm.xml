@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.IdtAbstracSolidGaugins" table="IDT_ABSTRAC_SOLID_GAUGINS"  >
+		<id name="abslId" type="java.lang.Long">
+			<column name="ABSL_ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">
+					ABSL_SQ_ABSL_ID
+            	</param>
+			</generator>
+		</id>
+		<many-to-one name="aforoSolido" class="sia.bql.hibernate.sioperan.IdtGaugings" fetch="select">
+			<column name="ABSL_GGN_ID" precision="22" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="abslLvlAvg" type="java.lang.Double">
+			<column name="ABSL_LVL_AVG" precision="4" />
+		</property>
+		<property name="abslCdlLqd" type="java.lang.Double">
+			<column name="ABSL_CDL_LQD" precision="7" />
+		</property>
+		<property name="abslCncSpr" type="java.lang.Double">
+			<column name="ABSL_CNC_SPR" precision="7" scale="3" />
+		</property>
+		<property name="abslSpnSldTtl" type="java.lang.Double">
+			<column name="ABSL_SPN_SLD_TTL" precision="7" scale="3" />
+		</property>
+		<property name="abslCntAvg" type="java.lang.Double">
+			<column name="ABSL_CNT_AVG" precision="7" scale="3" />
+		</property>
+		<property name="abslTimestamp" type="java.util.Date">
+			<column name="ABSL_TIMESTAMP" length="7" not-null="true" />
+		</property>
+		<many-to-one name="idtUsers" class="sia.bql.hibernate.sioperan.IdtUsers" fetch="select">
+			<column name="ABSL_USER_ID" precision="12" scale="0" />
+		</many-to-one>
+		<many-to-one name="aforoLiquido" class="sia.bql.hibernate.sioperan.IdtGaugings" fetch="select">
+			<column name="ABSL_LQD_GGN_ID" precision="22" scale="0" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

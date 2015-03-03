@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sia.bql.hibernate.sioperan.IdtUsers" table="IDT_USERS"  >
+        <id name="usrId" type="java.lang.Long">
+            <column name="USR_ID" precision="12" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="usrName" type="java.lang.String">
+            <column name="USR_NAME" length="100" not-null="true" />
+        </property>
+        <property name="usrDescription" type="java.lang.String">
+            <column name="USR_DESCRIPTION" length="240" />
+        </property>
+        <property name="usrPassword" type="java.lang.String">
+            <column name="USR_PASSWORD" length="40" />
+        </property>
+        <property name="usrStatus" type="java.lang.String">
+            <column name="USR_STATUS" length="40" not-null="true" />
+        </property>
+        <property name="usrTimestamp" type="java.util.Date">
+            <column name="USR_TIMESTAMP" length="7" not-null="true" />
+        </property>
+        <property name="usrPrfId" type="java.lang.Long">
+            <column name="USR_PRF_ID" precision="12" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+select MSTP_CODE,MSTP_NAME from idt_measure_types   
+
+
+
+
+select msfl_code,msfl_name from idt_measure_fields
+where MSFL_MSTP_CODE = 'SINOPTICA'
+
+
+SELECT e.ID_ES, e.NOMBRE_ES, e.CATEGORIA_ES ,
+ e.ESTADO_ES ,e.DESC_CATEGORIA, e.ALTURA_REFERENCIA_ES,
+  e.ALTITUD,e.NOMBRE_FGDA, e.GRADOS_LATITUD,
+   e.MINUTOS_LATITUD, e.SEGUNDOS_LATITUD,
+    e.DIRECCION_LATITUD ,e.NOM_AREA ,e.NOM_ZONA ,
+    e.NOM_SUBZONA ,e.GRADOS_LONGITUD ,
+     e.MINUTOS_LONGITUD, e.SEGUNDOS_LONGITUD ,
+     e.DIRECCION_LONGITUD, e.CODIGO_DIVIPOLA,
+      e. ID_AREA, e.ID_ZONA, e.ID_SUBZONA,
+       e.ID_CORRIENTE ,e.SIGLA_FGDA,div.NOMBRE_DV
+        as municipio, div.NOMBRE_PADRE_DV as departamento ,
+         r.RAZON_SOCIAL as AREAOPERATIVA,
+          e.cod_interno_es 
+          FROM SIOPERAN.SIOV_ESTACIONES e,
+           SIOPERAN.SIOV_DIVIPOLAS div,
+            SIOPERAN.SIO_ORGANIZACION r
+             WHERE div.CODIGO_DV=e.CODIGO_DIVIPOLA AND
+              (e.ID_ES=:estacion OR e.cod_interno_es=:estacion1 )
+              AND r.TIPO = 'AOP'
+               AND r.ORGANIZACION_ID = e.ID_ORG

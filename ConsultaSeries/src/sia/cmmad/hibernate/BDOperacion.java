@@ -1,0 +1,113 @@
+/*   1:    */package sia.cmmad.hibernate;
+
+/*   2:    */
+/*   3:    */import java.sql.Connection;
+import java.sql.Statement;
+/*   4:    */
+import java.sql.PreparedStatement;
+/*   5:    */
+import java.sql.ResultSet;
+/*   6:    */
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.commons.dbutils.DbUtils;
+
+import sia.cmmad.bean.util.Utiles;
+
+/*  13:    */
+/*  14:    */public class BDOperacion
+/* 15: */{
+	/* 16: */private static final String SELECT_GRUPO = "select MSTP_CODE,MSTP_NAME from idt_measure_types order by (MSTP_NAME)";
+	private static final String SELECT_VARIABLE = "select msfl_code,msfl_name from idt_measure_fields where MSFL_MSTP_CODE = ";
+
+	/* 21: */
+	/* 22: */public static String getMsflCode(String variable)
+	/* 23: */{
+		/* 24: 26 */Connection conn = null;
+		/* 25: */try
+		/* 26: */{
+			/* 27: 28 */conn = JDBCConnection.getConnection();
+			/* 28: 29 */PreparedStatement st = conn
+					/* 29: 30 */.prepareStatement("SELECT MSFL_CODE FROM IDT_MEASURE_FIELDS WHERE MSFL_MSTP_CODE = 'SRE_HMG' AND MSFL_DESCRIPTION LIKE '"
+							+
+							/* 30: 31 */variable + "'");
+			/* 31: 32 */ResultSet rs = st.executeQuery();
+			/* 32: 33 */rs.next();
+			/* 33: 34 */return String.valueOf(rs.getObject(1).toString());
+			/* 34: */}
+		/* 35: */catch (Exception e)
+		/* 36: */{
+			/* 37: 37 */e.printStackTrace();
+			/* 38: */}
+		/* 39: */finally
+		/* 40: */{
+			/* 41: 39 */if (conn != null) {
+				/* 42: */try
+				/* 43: */{
+					/* 44: 41 */conn.close();
+					/* 45: */}
+				/* 46: */catch (SQLException e)
+				/* 47: */{
+					/* 48: 43 */e.printStackTrace();
+					/* 49: */}
+				/* 50: */}
+			/* 51: */}
+		/* 52: 48 */return "";
+		/* 53: */}
+
+	/* 54: */
+	/* 150: */public static List<Object[]> obtenerGrupos()
+	/* 151: */{
+		/* 167: */try
+		/* 168: */{
+			/* 169:155 */return (List<Object[]>) HibernateSessionFactory
+					.currentSession().createSQLQuery(SELECT_GRUPO)
+					/* 170:156 */.list();
+			/* 171: */}
+		/* 172: */catch (Exception e)
+		/* 173: */{
+			/* 174:158 */e.printStackTrace();
+			/* 175: */}
+		/* 176:160 */return null;
+		/* 177: */}
+
+	public static List<Object[]> obtenerVariables(String grupo)
+	/* 151: */{
+		/* 167: */try
+		/* 168: */{
+			/* 169:155 */return (List<Object[]>) HibernateSessionFactory
+					.currentSession()
+					.createSQLQuery(
+							SELECT_VARIABLE + "'" + grupo + "'"
+									+ " ORDER BY msfl_name")
+					/* 170:156 */.list();
+			/* 171: */}
+		/* 172: */catch (Exception e)
+		/* 173: */{
+			/* 174:158 */e.printStackTrace();
+			/* 175: */}
+		/* 176:160 */return null;
+		/* 177: */}
+
+	/* 178: */
+
+	public static List<Object[]> obtenerDecadalesMuliAnual(String formatoSql) {
+		Connection c = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			c = JDBCConnection.getConnection();
+			stmt = c.createStatement();
+			rs = stmt.executeQuery(formatoSql);
+			while (rs.next()) {
+				System.out.println(rs.getString(4));
+			}
+		} catch(Exception e){}finally {
+			DbUtils.closeQuietly(c, stmt, rs);
+		}
+
+		return null;
+
+	}
+}

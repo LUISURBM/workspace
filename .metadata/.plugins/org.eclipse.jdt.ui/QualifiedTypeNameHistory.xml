@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.icefaces.apache.commons.io.FileUtils"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+<fullyQualifiedTypeName name="sia.cmmad.hibernate.BDOperacion"/>
+<fullyQualifiedTypeName name="sia.cmmad.i18n.NombresTitulosAplicacion"/>
+<fullyQualifiedTypeName name="sia.cmmad.hibernate.HibernateSessionFactory"/>
+<fullyQualifiedTypeName name="sia.cmmad.bean.InformacionEstacion"/>
+</qualifiedTypeNameHistroy>

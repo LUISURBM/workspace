@@ -1,0 +1,553 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.hidromet.ShmtDiarios" table="SHMT_DIARIOS">
+		<id name="drsId" type="java.lang.Long">
+			<column name="DRS_ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">DRS_SQ_DRS_ID</param>
+			</generator>
+		</id>
+		<property generated="never" lazy="false" name="drsEstacionId"
+			type="java.lang.Long">
+			<column name="DRS_ESTACION_ID" not-null="true" precision="22"
+				scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="drsVarId"
+			type="java.lang.String">
+			<column length="20" name="DRS_VAR_ID" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="drsAno"
+			type="java.lang.Long">
+			<column name="DRS_ANO" not-null="true" precision="4" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="drsMes"
+			type="java.lang.Long">
+			<column name="DRS_MES" not-null="true" precision="2" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="drsEst"
+			type="java.lang.Long">
+			<column name="DRS_EST" precision="1" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="drsEnt"
+			type="java.lang.String">
+			<column length="2" name="DRS_ENT" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor1"
+			type="java.lang.Double">
+			<column name="DRS_VALOR1" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd1"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD1" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor2"
+			type="java.lang.Double">
+			<column name="DRS_VALOR2" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd2"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD2" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor3"
+			type="java.lang.Double">
+			<column name="DRS_VALOR3" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd3"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD3" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor4"
+			type="java.lang.Double">
+			<column name="DRS_VALOR4" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd4"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD4" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor5"
+			type="java.lang.Double">
+			<column name="DRS_VALOR5" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd5"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD5" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor6"
+			type="java.lang.Double">
+			<column name="DRS_VALOR6" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd6"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD6" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor7"
+			type="java.lang.Double">
+			<column name="DRS_VALOR7" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd7"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD7" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor8"
+			type="java.lang.Double">
+			<column name="DRS_VALOR8" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd8"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD8" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor9"
+			type="java.lang.Double">
+			<column name="DRS_VALOR9" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd9"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD9" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor10"
+			type="java.lang.Double">
+			<column name="DRS_VALOR10" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd10"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD10" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor11"
+			type="java.lang.Double">
+			<column name="DRS_VALOR11" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd11"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD11" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor12"
+			type="java.lang.Double">
+			<column name="DRS_VALOR12" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd12"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD12" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor13"
+			type="java.lang.Double">
+			<column name="DRS_VALOR13" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd13"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD13" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor14"
+			type="java.lang.Double">
+			<column name="DRS_VALOR14" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd14"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD14" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor15"
+			type="java.lang.Double">
+			<column name="DRS_VALOR15" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd15"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD15" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor16"
+			type="java.lang.Double">
+			<column name="DRS_VALOR16" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd16"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD16" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor17"
+			type="java.lang.Double">
+			<column name="DRS_VALOR17" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd17"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD17" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor18"
+			type="java.lang.Double">
+			<column name="DRS_VALOR18" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd18"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD18" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor19"
+			type="java.lang.Double">
+			<column name="DRS_VALOR19" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd19"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD19" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor20"
+			type="java.lang.Double">
+			<column name="DRS_VALOR20" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd20"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD20" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor21"
+			type="java.lang.Double">
+			<column name="DRS_VALOR21" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd21"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD21" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor22"
+			type="java.lang.Double">
+			<column name="DRS_VALOR22" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd22"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD22" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor23"
+			type="java.lang.Double">
+			<column name="DRS_VALOR23" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd23"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD23" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor24"
+			type="java.lang.Double">
+			<column name="DRS_VALOR24" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd24"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD24" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor25"
+			type="java.lang.Double">
+			<column name="DRS_VALOR25" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd25"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD25" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor26"
+			type="java.lang.Double">
+			<column name="DRS_VALOR26" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd26"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD26" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor27"
+			type="java.lang.Double">
+			<column name="DRS_VALOR27" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd27"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD27" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor28"
+			type="java.lang.Double">
+			<column name="DRS_VALOR28" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd28"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD28" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor29"
+			type="java.lang.Double">
+			<column name="DRS_VALOR29" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd29"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD29" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor30"
+			type="java.lang.Double">
+			<column name="DRS_VALOR30" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd30"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD30" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor31"
+			type="java.lang.Double">
+			<column name="DRS_VALOR31" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd31"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD31" />
+		</property>
+		<property generated="never" lazy="false" name="drsFecha"
+			type="java.util.Date">
+			<column length="7" name="DRS_FECHA" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor1Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR1_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd1Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD1_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor2Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR2_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd2Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD2_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor3Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR3_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd3Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD3_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor4Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR4_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd4Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD4_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor5Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR5_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd5Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD5_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor6Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR6_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd6Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD6_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor7Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR7_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd7Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD7_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor8Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR8_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd8Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD8_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor9Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR9_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd9Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD9_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor10Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR10_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd10Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD10_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor11Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR11_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd11Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD11_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor12Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR12_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd12Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD12_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor13Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR13_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd13Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD13_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor14Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR14_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd14Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD14_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor15Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR15_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd15Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD15_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor16Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR16_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd16Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD16_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor17Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR17_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd17Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD17_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor18Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR18_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd18Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD18_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor19Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR19_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd19Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD19_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor20Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR20_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd20Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD20_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor21Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR21_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd21Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD21_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor22Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR22_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd22Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD22_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor23Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR23_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd23Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD23_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor24Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR24_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd24Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD24_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor25Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR25_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd25Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD25_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor26Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR26_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd26Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD26_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor27Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR27_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd27Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD27_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor28Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR28_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd28Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD28_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor29Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR29_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd29Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD29_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor30Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR30_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd30Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD30_FIX" />
+		</property>
+		<property generated="never" lazy="false" name="drsValor31Fix"
+			type="java.lang.Double">
+			<column name="DRS_VALOR31_FIX" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drsOd31Fix"
+			type="java.lang.String">
+			<column length="1" name="DRS_OD31_FIX" />
+		</property>
+		<property name="idtUsers" type="java.lang.Long">
+			<column name="DRS_USUARIO" precision="12" scale="0" />
+		</property>
+	</class>
+
+	<query name="consultaCaudalesEnEstacionYAno">
+		<![CDATA[
+			select n from ShmtDiarios as n 
+			where n.drsEstacionId=:estacionId
+			and n.drsAno=:año
+			and n.drsVarId=:variable
+			order by n.drsAno,n.drsMes
+    	]]>
+		<query-param name="estacionId" type="java.lang.Long" />
+		<query-param name="año" type="java.lang.Long" />
+		<query-param name="variable" type="java.lang.String" />
+	</query>
+</hibernate-mapping>

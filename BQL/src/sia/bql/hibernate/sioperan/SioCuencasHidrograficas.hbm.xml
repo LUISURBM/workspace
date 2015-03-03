@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.SioCuencasHidrograficas"
+		table="SIO_CUENCAS_HIDROGRAFICAS">
+		<id name="cuencaHidrograficaId" type="java.lang.Long">
+			<column name="CUENCA_HIDROGRAFICA_ID" precision="22" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<property name="codigo" type="java.lang.String">
+			<column name="CODIGO" length="20" not-null="true" />
+		</property>
+		<property name="nombre" type="java.lang.String">
+			<column name="NOMBRE" length="200" />
+		</property>
+		<property name="tipo" type="java.lang.String">
+			<column name="TIPO" length="3" />
+		</property>
+		<property name="clase" type="java.lang.String">
+			<column name="CLASE" length="3" />
+		</property>
+		<property name="fechaCreacion" type="java.util.Date">
+			<column name="FECHA_CREACION" length="7" not-null="true" />
+		</property>
+		<property name="fechaModificacion" type="java.util.Date">
+			<column name="FECHA_MODIFICACION" length="7" not-null="true" />
+		</property>
+		<property name="cuencaPadreId" type="java.lang.Long">
+			<column name="CUENCA_PADRE_ID" length="22" not-null="true" />
+		</property>
+		<property name="codigoPath" type="java.lang.String">
+			<column name="CODIGO_PATH" length="20" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

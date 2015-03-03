@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:ace="http://www.icefaces.org/icefaces/components">
+<h:head>
+	<title>#{title}</title>
+	<link rel="stylesheet" type="text/css"
+		href="./resources/css/template.css" />
+	<link rel="stylesheet" type="text/css"
+		href="./resources/css/Estilos.css" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="./resources/css/Imagenes/logo_ideam.ico" />
+</h:head>
+<h:body>
+
+	<div align="center" id="header_sup" />
+
+	<f:loadBundle var="mensajes" basename="sia.cmmad.i18n.messages" />
+
+	<ice:outputText id="middlehead_sub" value="#{mensajes.nombre_sistema}" />
+	<br />
+	<ice:outputText id="middlehead" value="#{mensajes.nombre_subsistema}" />
+	<br />
+	<ice:outputText id="middlehead_ql"
+		value="#{mensajes.nombre_subsistema_bql}" />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div>
+		<h:form id="formBack">
+			<h:panelGrid columns="1"
+				style="position:absolute;left:15px;top: 140px; text-decoration: underline; font-style: normal; color: blue; z-index:4">
+				<ice:commandLink
+					style="text-decoration: underline; font-style: normal; color: blue;"
+					value="Volver al Menú Principal"
+					onclick="javascript:window.location='#{BeanFachada.BACK}';" />
+			</h:panelGrid>
+			<h:panelGrid columns="1"
+				style="position:absolute;right:1%;top: 145px;text-decoration: bold; font-style: normal;background-color:#D3DEE5;z-index:3;">
+				<ace:submitMonitor id="submitMonitor"
+					activeLabel="#{mensajes.lbl_tt_cargando}"
+					serverErrorLabel="#{mensajes.lbl_tt_serverErrorLabel}"
+					networkErrorLabel="#{mensajes.lbl_tt_networkErrorLabel}"
+					sessionExpiredLabel="#{mensajes.lbl_tt_sessionExpiredLabel}"
+					blockUI="@none" />
+			</h:panelGrid>
+
+		</h:form>
+	</div>
+	<div id="divForm">
+		<h:form id="form" method="POST" prependId="false" >
+			<ui:insert name="menuItems" />
+		</h:form>
+	</div>
+	<div>
+		<h:form id="form1">
+			<ui:insert name="menuSearch" />
+		</h:form>
+	</div>
+	<br />
+	<br />
+	<br />
+
+</h:body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sia.bql.hibernate.sioperan.SioEstaciones" table="SIO_ESTACIONES"  >
+        <id name="estacionId" type="java.lang.Long">
+            <column name="ESTACION_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="tipo" type="java.lang.String">
+            <column name="TIPO" length="3" not-null="true" />
+        </property>
+        <property name="escala" type="java.lang.String">
+            <column name="ESCALA" length="3" />
+        </property>
+        <property name="codigoInterno" type="java.lang.String">
+            <column name="CODIGO_INTERNO" length="50" />
+        </property>
+        <property name="fechaCreacion" type="java.util.Date">
+            <column name="FECHA_CREACION" length="7" not-null="true" />
+        </property>
+        <property name="satEnlace" type="java.lang.String">
+            <column name="SAT_ENLACE" length="100" />
+        </property>
+        <property name="satTipo" type="java.lang.String">
+            <column name="SAT_TIPO" length="3" />
+        </property>
+        <property name="fechaModificacion" type="java.util.Date">
+            <column name="FECHA_MODIFICACION" length="7" not-null="true" />
+        </property>
+        <property name="alturaReferencia" type="java.lang.Double">
+            <column name="ALTURA_REFERENCIA" precision="20" not-null="true" />
+        </property>
+        <property name="satNombre" type="java.lang.String">
+            <column name="SAT_NOMBRE" length="50" />
+        </property>
+        <property name="clase" type="java.lang.String">
+            <column name="CLASE" length="3" not-null="true" />
+        </property>
+        <property name="categoria" type="java.lang.String">
+            <column name="CATEGORIA" length="3" not-null="true" />
+        </property>
+        <property name="satProtocolo" type="java.lang.String">
+            <column name="SAT_PROTOCOLO" length="3" />
+        </property>
+        <property name="comentarioInstalacion" type="java.lang.String">
+            <column name="COMENTARIO_INSTALACION" length="1000" />
+        </property>
+        <property name="satVentana" type="java.lang.String">
+            <column name="SAT_VENTANA" length="100" />
+        </property>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" length="300" not-null="true" />
+        </property>
+        <property name="objetivoInstalacion" type="java.lang.String">
+            <column name="OBJETIVO_INSTALACION" length="3" not-null="true" />
+        </property>
+        <property name="codigoReporte" type="java.lang.String">
+            <column name="CODIGO_REPORTE" length="50" />
+        </property>
+        <property name="codigoInternacional" type="java.lang.String">
+            <column name="CODIGO_INTERNACIONAL" length="50" />
+        </property>
+        <property name="codigoCatalogo" type="java.lang.String">
+            <column name="CODIGO_CATALOGO" length="50" />
+        </property>
+        <property name="estado" type="java.lang.String">
+            <column name="ESTADO" length="3" not-null="true" />
+        </property>
+        <property name="fechaAplicacion" type="java.util.Date">
+            <column name="FECHA_APLICACION" length="7" not-null="true" />
+        </property>
+        <property name="codigoOaci" type="java.lang.String">
+            <column name="CODIGO_OACI" length="50" />
+        </property>
+        <property name="codigoWmo" type="java.lang.String">
+            <column name="CODIGO_WMO" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

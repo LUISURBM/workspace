@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.ShmtGranulometria" table="SHMT_GRANULOMETRIA"  >
+		<id name="grnId" type="java.lang.Long">
+			<column name="GRN_ID" precision="22" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<property name="grnEstacionId" type="java.lang.Long">
+			<column name="GRN_ESTACION_ID" precision="22" scale="0" not-null="true" />
+		</property>
+		<property name="grnFechaMuestreo" type="java.util.Date">
+			<column name="GRN_FECHA_MUESTREO" length="7" />
+		</property>
+		<property name="grnFechaAnalisis" type="java.util.Date">
+			<column name="GRN_FECHA_ANALISIS" length="7" />
+		</property>
+		<property name="grnTipoSedimento" type="java.lang.String">
+			<column name="GRN_TIPO_SEDIMENTO" length="20" />
+		</property>
+		<property name="grnFluviometro" type="java.lang.Long">
+			<column name="GRN_FLUVIOMETRO" precision="4" scale="0" />
+		</property>
+		<property name="grnEquipoMuestreador" type="java.lang.Long">
+			<column name="GRN_EQUIPO_MUESTREADOR" precision="2" scale="0" />
+		</property>
+		<property name="grnAbscisa" type="java.lang.Double">
+			<column name="GRN_ABSCISA" precision="5" scale="1" />
+		</property>
+		<property name="grnPesoTotMuestra" type="java.lang.Double">
+			<column name="GRN_PESO_TOT_MUESTRA" precision="4" />
+		</property>
+		<property name="grnPesoTotMuestraTratada" type="java.lang.Double">
+			<column name="GRN_PESO_TOT_MUESTRA_TRATADA" precision="4" />
+		</property>
+		<property name="grnTiempoTamizado" type="java.lang.Long">
+			<column name="GRN_TIEMPO_TAMIZADO" precision="2" scale="0" />
+		</property>
+		<property name="grnObservaciones" type="java.lang.String">
+			<column name="GRN_OBSERVACIONES" length="50" />
+		</property>
+		<property name="grnNombreAnalista" type="java.lang.String">
+			<column name="GRN_NOMBRE_ANALISTA" length="30" />
+		</property>
+		<many-to-one name="idtUsers" class="sia.bql.hibernate.sioperan.IdtUsers" fetch="select">
+			<column name="GRN_USUARIO" precision="12" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="grnFecha" type="java.util.Date">
+			<column name="GRN_FECHA" length="7" />
+		</property>
+		<property name="grnCoordProg" type="java.lang.String">
+			<column name="GRN_COORD_PROG" length="80" />
+		</property>
+		<property name="grnMetodoProceso" type="java.lang.String">
+			<column name="GRN_METODO_PROCESO" length="15"></column>
+		</property>
+		<set name="shmtGranulometriaCalculoses" inverse="true">
+			<key>
+				<column name="GRCL_GRN_ID" precision="22" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="sia.bql.hibernate.sioperan.ShmtGranulometriaCalculos" />
+		</set>
+	</class>
+	<query name="muestraGranulometriaPorEstacion">
+		<![CDATA[
+		select g 
+		from ShmtGranulometria as g 
+		where g.grnEstacionId = :estacion 
+		order by g.grnFechaMuestreo desc
+	]]>
+		<query-param name="estacion" type="java.lang.Long" />
+	</query>
+</hibernate-mapping>

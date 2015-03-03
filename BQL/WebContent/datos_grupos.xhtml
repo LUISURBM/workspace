@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+	<h:panelGrid columns="2" cellpadding="8px" cellspacing="8px" 
+		rendered="#{BeanFachada.visibleTabla}"
+		style="position:relative; left: 0px;  z-index: 0; top:6px; background-color: transparent; width:100%; vertical-align: top;">
+		<h:panelGrid columns="2" styleClass="panel_datos"
+			style="position:absolute; top:0px; left: 10px;  z-index: 0; border: 4px solid #087f96; vertical-align: top;">
+			<h:dataTable value="#{BeanFachada.gruposBalanceCaudal}" var="g"
+				id="tableGruposCdl" style="vertical-align: top; top:0px;">
+				<h:column id="columnGruposCdl">
+					<ace:accordion id="accordion" collapsible="true" autoHeight="false"
+						style="background-color: transparent important; font-size:12px;"
+						activeIndex="-1">
+
+						<ace:accordionPane id="gruposPane" title="#{g.nameDisplay}">
+							<h:panelGrid columns="2" id="panelGrupos"
+								style="position:relative; left: 10px;  z-index: 0; border: 4px solid blue; background-color: transparent;vertical-align:top;">
+								<h:dataTable value="#{g.estaciones}" var="e"
+									id="tableEstacionesGrupo">
+									<h:column id="columnGruposPane">
+										<ace:accordion id="accordion2" collapsible="true"
+											style=" background-color:transparent;" autoHeight="false"
+											activeIndex="-1">
+
+											<ace:accordionPane id="gruposPane2"
+												title="#{e.estacion.codCatalogoEs} #{e.estacion.nombrePma} 
+								(#{e.estacion.idCorriente})">
+												<h:panelGrid id="panelEstacionPane"
+													style="position:relative; left: 10px;  z-index: 0; height:20px;"
+													columns="1">
+
+													<h:panelGrid title="#{mensajes.lbl_observaciones}"
+														rendered="#{!e.estacionNivel}"
+														style="border: 4px solid #FF69B4;color:blue;position:absolute;height:5px;"> 
+								#{e.egbqObservacion}
+								</h:panelGrid>
+													<h:panelGrid title="#{mensajes.lbl_peso}"
+														style="border: 4px solid pink;color:blue;"
+														rendered="#{e.estacionNivel}"> 
+								#{e.egbqPeso}
+									</h:panelGrid>
+
+													<h:outputLabel id="nuevoDistancia"
+														value="#{BeanFachada.nuevoDistancia}" rendered="false" />
+												</h:panelGrid>
+											</ace:accordionPane>
+
+										</ace:accordion>
+									</h:column>
+								</h:dataTable>
+							</h:panelGrid>
+						</ace:accordionPane>
+
+					</ace:accordion>
+				</h:column>
+			</h:dataTable>
+
+			<h:panelGrid columns="2"
+				style="position:absolute; top:0px; left: in-block;  z-index: 0;font-size:12px; ">
+				<h:graphicImage
+					style="font-size:12px; position: absolute; float: top; top:0px; left:10px;  border: 4px solid #087f96; vertical-align: top;"
+					value="./RQ544#{BeanFachada.nuevoGrafo.fileExtension}"
+					alt="#{mensajes.lbl_tt_diagrama_no_disponible}" />
+
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:panelGrid>
+
+</ui:composition>

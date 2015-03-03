@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.ShmtGranulometriaCalculos" table="SHMT_GRANULOMETRIA_CALCULOS"  >
+		<id name="grclId" type="java.lang.Long">
+			<column name="GRCL_ID" precision="22" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="shmtGranulometria" class="sia.bql.hibernate.sioperan.ShmtGranulometria" fetch="select">
+			<column name="GRCL_GRN_ID" precision="22" scale="0" not-null="true" />
+		</many-to-one>
+		<many-to-one name="idtUsers" class="sia.bql.hibernate.sioperan.IdtUsers" fetch="select">
+			<column name="GRCL_USUARIO" precision="12" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="grclFecha" type="java.util.Date">
+			<column name="GRCL_FECHA" length="7" />
+		</property>
+		<property name="grclP1" type="java.lang.Double">
+			<column name="GRCL_P1" precision="4" />
+		</property>
+		<property name="grclD1" type="java.lang.Double">
+			<column name="GRCL_D1" precision="4" />
+		</property>
+		<property name="grclPesoRetenido" type="java.lang.Double">
+			<column name="GRCL_PESO_RETENIDO" precision="4" />
+		</property>
+		<property name="grclPorcAcumulado" type="java.lang.Double">
+			<column name="GRCL_PORC_ACUMULADO" precision="4" />
+		</property>
+		<property name="grclPorcPasa" type="java.lang.Double">
+			<column name="GRCL_PORC_PASA" precision="4" />
+		</property>
+		<property name="grclDm" type="java.lang.Double">
+			<column name="GRCL_DM" precision="4" />
+		</property>
+		<property name="grclW1" type="java.lang.Double">
+			<column name="GRCL_W1" precision="4" />
+		</property>
+		<property name="grclWpond" type="java.lang.Double">
+			<column name="GRCL_WPOND" precision="4" />
+		</property>
+	</class>
+	<query name="calculosGranulometria">
+    	<![CDATA[
+    		select g from ShmtGranulometriaCalculos as g 
+    		where g.shmtGranulometria.grnId = :grnId
+    		order by g.grclId, g.grclD1 desc
+    	]]>
+		<query-param name="grnId" type="java.lang.Long" />
+	</query>
+
+</hibernate-mapping>

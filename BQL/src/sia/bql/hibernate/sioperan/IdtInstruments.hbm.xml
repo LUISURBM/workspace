@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="sia.bql.hibernate.sioperan.IdtInstruments" table="IDT_INSTRUMENTS"  >
+		<id name="insId" type="java.lang.Long">
+			<column name="INS_ID" precision="12" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="idtUsers" class="sia.bql.hibernate.sioperan.IdtUsers" fetch="select">
+			<column name="INS_USR_ID" precision="12" scale="0" not-null="true" />
+		</many-to-one>
+		<many-to-one name="idtInstrumentTypes" class="sia.bql.hibernate.sioperan.IdtInstrumentTypes" fetch="select">
+			<column name="INS_INTP_ID" precision="12" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="insCode" type="java.lang.String">
+			<column name="INS_CODE" length="20" />
+		</property>
+		<property name="insDescription" type="java.lang.String">
+			<column name="INS_DESCRIPTION" length="240" />
+		</property>
+		<property name="insTimestamp" type="java.util.Date">
+			<column name="INS_TIMESTAMP" length="7" not-null="true" />
+		</property>
+		<property name="insEstacionId" type="java.lang.Long">
+			<column name="INS_ESTACION_ID" precision="22" scale="0" />
+		</property>
+		<property name="insArop" type="java.lang.String">
+			<column name="INS_AROP" length="2" />
+		</property>
+	</class>
+</hibernate-mapping>

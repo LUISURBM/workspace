@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+	version="2.1">
+	<managed-bean>
+		<managed-bean-name>BeanFachada</managed-bean-name>
+		<managed-bean-class>sia.cmmad.bean.FacadeBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	 <managed-bean>
+  <managed-bean-name>Estacion</managed-bean-name>
+  <managed-bean-class>sia.cmmad.bean.InformacionEstacion</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+<application>
+<message-bundle>
+sia.cmmad.i18n.messages
+</message-bundle>
+</application>
+<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case><from-action>#{BeanFachada.getReportNavigation}</from-action>
+			<from-outcome>ReporteRQ866DCD</from-outcome>
+			<redirect>/ReporteRQ866DCD.xlsx</redirect>
+			<redirect />
+		</navigation-case>
+		<navigation-case><from-action>#{BeanFachada.getReportNavigation}</from-action>
+		<from-outcome>ReporteRQ866MAM</from-outcome>
+		<redirect>/ReporteRQ866MAM.xlsx</redirect>
+	</navigation-case>
+	</navigation-rule></faces-config>

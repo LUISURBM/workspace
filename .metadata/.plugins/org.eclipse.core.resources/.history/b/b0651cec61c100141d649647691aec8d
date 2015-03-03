@@ -1,0 +1,243 @@
+package sia.cmmad.bean;
+
+import java.awt.event.ActionEvent;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang.ObjectUtils;
+import org.icefaces.ace.component.maskedentry.MaskedEntry;
+import org.jboss.logging.Logger;
+
+import sia.cmmad.bean.util.Utiles;
+import sia.cmmad.hibernate.BDOperacion;
+import sia.cmmad.hidromet.Hmst_DailyData;
+import sia.cmmad.i18n.NombresTitulosAplicacion;
+
+import com.icesoft.faces.component.selectinputdate.SelectInputDate;
+
+@ManagedBean
+@SessionScoped
+public class FacadeBean implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private static Logger log = Logger.getLogger(FacadeBean.class);
+	private static String[] severityNames = { "Info", "Warn", "Error", "Fatal" };
+	private MaskedEntry fechaIni, fechaFinal;
+	private static String BACK = "http://OASDESA.IDEAM.GOV.CO:7780/MenuSia";
+	protected boolean cambiosCombos = false;
+	protected SelectInputDate fechaBusqueda;
+	private static String tipoReporte = "";
+	private String grupoMedicion = "";
+	private String variable = "";
+	private String fechaInicio = "";
+	private String fechaFin = "";
+
+	private static void cargarBACK() {
+		HttpServletRequest origRequest = (HttpServletRequest) FacesContext
+				.getCurrentInstance().getExternalContext().getRequest();
+		String referrer = origRequest.getHeader("referer");
+		log.debug(referrer);
+		// log.debug(origRequest.getRequestURL());
+		// log.debug(origRequest.getScheme());
+		// log.debug(origRequest.getServerName());
+		// log.debug(origRequest.getServerPort());
+		// log.debug(origRequest.getContextPath());
+		// log.debug(origRequest.getServletPath());
+		// log.debug(origRequest.getPathInfo());
+		// log.debug(origRequest.getQueryString());
+		if (referrer != null) {
+			FacadeBean.BACK = referrer;
+		}
+	}
+
+	public String getBACK() {
+		if (BACK.equals(null)) {
+			BACK = ((HttpServletRequest) context().getExternalContext()
+					.getRequest()).getServletContext().getInitParameter("name");
+		}
+		return BACK;
+	}
+
+	public void setBACK(String bACK) {
+		BACK = bACK;
+	}
+
+	public static FacesContext context() {
+		return FacesContext.getCurrentInstance();
+	}
+
+	@PostConstruct
+	public void init() {
+
+		if (Utiles.httpMethodGet()) {
+			cargarBACK();
+			tipoReporte = Utiles.getTipoReporte();
+		}
+		log.debug("init() : " + Utiles.httpMethod());
+	}
+
+	public boolean isCambiosCombos() {
+		return cambiosCombos;
+	}
+
+	public void setCambiosCombos(boolean cambiosCombos) {
+		this.cambiosCombos = cambiosCombos;
+	}
+
+	public SelectInputDate getFechaBusqueda() {
+		return fechaBusqueda;
+	}
+
+	public void setFechaBusqueda(SelectInputDate fechaBusqueda) {
+		this.fechaBusqueda = fechaBusqueda;
+	}
+
+	public String getTipoReporte() {
+		return tipoReporte;
+	}
+
+	public void setTipoReporte(String tipoReporte) {
+		this.tipoReporte = tipoReporte;
+	}
+
+	public String getGrupoMedicion() {
+		return grupoMedicion;
+	}
+
+	public void setGrupoMedicion(String grupoMedicion) {
+		this.grupoMedicion = grupoMedicion;
+	}
+
+	public String getVariable() {
+		return variable;
+	}
+
+	public void setVariable(String variable) {
+		this.variable = variable;
+	}
+
+	public String getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public int getFechaInicioInteger() {
+		return Integer.parseInt(fechaInicio);
+	}
+
+	public void setFechaInicio(String fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
+	public String getFechaFin() {
+		return fechaFin;
+	}
+
+	public int getFechaFinInteger() {
+		return Integer.parseInt(fechaFin);
+	}
+
+	public void setFechaFin(String fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
+	public MaskedEntry getFechaIni() {
+		return fechaIni;
+	}
+
+	public void setFechaIni(MaskedEntry fechaIni) {
+		this.fechaIni = fechaIni;
+	}
+
+	public MaskedEntry getFechaFinal() {
+		return fechaFinal;
+	}
+
+	public void setFechaFinal(MaskedEntry fechaFinal) {
+		this.fechaFinal = fechaFinal;
+	}
+
+	public String getReportNavigation() {
+		List<Object[]> data = null;
+		if (Utiles.httpMethodGet()) {
+			return "./ReporteRQ866.xlsx";
+		} else if (getTipoReporte().equals(
+				NombresTitulosAplicacion.TITULO_REPORTE_DECADAL.nombreTitulo)) {
+			data = Hmst_DailyData.getCubeDecadales(getFechaInicioInteger(),
+					getFechaFinInteger(),
+					NombresTitulosAplicacion.FRECUENCIA_DIARIA.nombreTitulo,
+					getGrupoMedicion(), getVariable());
+			Utiles.setDataXLSX(data, data, getFechaInicioInteger(),
+					getFechaFinInteger(),
+					NombresTitulosAplicacion.DECADAL.nombreTitulo,
+					getGrupoMedicion(), getVariable());
+			return "./RP1";
+		} else {
+			return "./ReporteRQ866.xlsx";
+		}
+	}
+
+	public void getReportNavigation(ActionEvent e) {
+		List<Object[]> data = null;
+		if (Utiles.httpMethodGet()) {
+			// return "./ReporteRQ866.xlsx";
+		} else if (getTipoReporte().equals(
+				NombresTitulosAplicacion.TITULO_REPORTE_DECADAL.nombreTitulo)) {
+			data = Hmst_DailyData.getCubeDecadales(getFechaInicioInteger(),
+					getFechaFinInteger(),
+					NombresTitulosAplicacion.FRECUENCIA_DIARIA.nombreTitulo,
+					getGrupoMedicion(), getVariable());
+			Utiles.setDataXLSX(data, data, getFechaInicioInteger(),
+					getFechaFinInteger(),
+					NombresTitulosAplicacion.DECADAL.nombreTitulo,
+					getGrupoMedicion(), getVariable());
+			// return "./RP1";
+		} else {
+			// return "./ReporteRQ866.xlsx";
+		}
+	}
+
+	private String getFrecuencia() {
+		return null;
+	}
+
+	public List<SelectItem> getGruposMedicion() {
+		List<Object[]> grupos = BDOperacion.obtenerGrupos();
+		List<SelectItem> itemGrupos = new ArrayList<SelectItem>();
+		for (Object[] objects : grupos) {
+			itemGrupos.add(new SelectItem(ObjectUtils.toString(objects[0]),
+					ObjectUtils.toString(objects[1])));
+		}
+		return itemGrupos;
+	}
+
+	public List<SelectItem> getVariables() {
+		List<Object[]> grupos = BDOperacion
+				.obtenerVariables(getGrupoMedicion());
+		List<SelectItem> itemGrupos = new ArrayList<SelectItem>();
+		for (Object[] objects : grupos) {
+			itemGrupos.add(new SelectItem(ObjectUtils.toString(objects[0]),
+					ObjectUtils.toString(objects[1])));
+		}
+		return itemGrupos;
+	}
+
+	public void grupoMedicionListener(ValueChangeEvent e) {
+		getVariables();
+	}
+
+	public boolean getReporteMultianual() {
+		if (getTipoReporte().equals(
+				NombresTitulosAplicacion.TITULO_REPORTE_DECADAL)) {
+			return false;
+		}
+		return false;
+	}
+}
