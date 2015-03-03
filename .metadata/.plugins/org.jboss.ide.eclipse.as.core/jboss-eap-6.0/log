@@ -673,3 +673,22 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.jboss.jbd
 
 !ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 12:08:54.869
 !MESSAGE Server processes have been terminated.
+!SESSION 2015-03-03 15:22:17.160 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product com.jboss.jbds.product.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.jboss.jbds.product.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 15:25:42.928
+!MESSAGE Module BQL published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 15:25:49.006
+!MESSAGE Module ConsultaSeries published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 15:25:57.482
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 15:26:18.511
+!MESSAGE Server Startup Succeeded

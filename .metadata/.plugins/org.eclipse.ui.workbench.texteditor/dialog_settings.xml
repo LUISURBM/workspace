@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="200" key="DIALOG_Y_ORIGIN"/>
-		<item value="1056" key="DIALOG_X_ORIGIN"/>
-		<item value="259" key="DIALOG_HEIGHT"/>
+		<item value="328" key="DIALOG_WIDTH"/>
+		<item value="8" key="DIALOG_Y_ORIGIN"/>
+		<item value="451" key="DIALOG_HEIGHT"/>
+		<item value="1046" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="get" key="selection"/>
+		<item value="MyResource" key="selection"/>
 		<list key="findhistory">
-			<item value="get"/>
-			<item value="create"/>
-			<item value="bind"/>
-			<item value="bindi"/>
-			<item value="bindin"/>
-			<item value="evaluate"/>
-			<item value="InformacionEstacion"/>
-			<item value="getReportNavigation"/>
+			<item value="MyResource"/>
+			<item value="getTipo"/>
+			<item value="trunc(dldt_datadate)"/>
+			<item value="HIMEDESADEV"/>
+			<item value="HibernateSessionFactory"/>
+			<item value="/* 163:173 */return (String) sessionMap().get(&quot;tipoReporte&quot;);"/>
+			<item value="tipoReporte"/>
+			<item value="tipo"/>
 		</list>
 		<list key="replacehistory">
+			<item value="TO_CHAR(dldt_datadate,&apos;YYYY-MM-DD&apos;)"/>
+			<item value=""/>
+			<item value="DLD"/>
 			<item value="to_char(dldt_datadate,&apos;YYYY-MM-DD&apos;)  "/>
 			<item value="to_char(dldt_datadate,&apos;YYYY-MM-DD&apos;) "/>
 		</list>
