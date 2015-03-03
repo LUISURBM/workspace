@@ -1,6 +1,9 @@
 /*   1:    */package sia.cmmad.bean.util;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -84,7 +87,7 @@ import org.jboss.logging.Logger;
 		/* 185:191 */mostrarMensaje(m);
 		/* 186: */}
 
-	/*     */public static void setDataXLSX(List data, List data2, int fechaInicio,
+	/*     */public static void setDataXLSX(List data, int fechaInicio,
 			int fechaFin, String frecuencia, String grupoMedicion,
 			String variable) {
 		String[][] matriz = new String[14][fechaFin - fechaInicio + 1];
@@ -166,7 +169,7 @@ import org.jboss.logging.Logger;
 				.getRealPath("/ReporteRQ866.xlsx");
 	}
 
-	private static String getArchivoReporteDCD() {
+	public static String getArchivoReporteDCD() {
 		return FacesContext.getCurrentInstance().getExternalContext()
 				.getRealPath("/")
 				+ "ReporteRQ866DCD.xlsx";
@@ -177,13 +180,13 @@ import org.jboss.logging.Logger;
 			String grupoMedicion, String variable) {
 
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fecha_desde", "'"
-				+ fechaInicio + "-11-21'");
+				+ fechaInicio + "01-01'");
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fecha_hasta", "'" + fechaFin
-				+ "-11-31'");
-		// sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fml_code_frecuencia", "'"
-		// + frecuenciaDiaria + "'");
-		// sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fml_code_grupo", "'"
-		// + grupoMedicion + "'");
+				+ "-12-31'");
+		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fml_code_frecuencia", "'"
+				+ frecuenciaDiaria + "'");
+		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fml_code_grupo", "'"
+				+ grupoMedicion + "'");
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_var", "'" + variable + "'");
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_estacion", ""
 				+ asNumeric(codigo) + "");
@@ -215,6 +218,19 @@ import org.jboss.logging.Logger;
 
 	public static String getDS() {
 		return (String) sessionMap().get("HIMEDESADEV");
+	}
+
+	public static byte[] readIntoByteArray(InputStream in) throws IOException {
+		byte[] buffer = new byte[4096];
+		int bytesRead;
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+		while ((bytesRead = in.read(buffer)) != -1) {
+			out.write(buffer, 0, bytesRead);
+		}
+		out.flush();
+
+		return out.toByteArray();
 	}
 
 }

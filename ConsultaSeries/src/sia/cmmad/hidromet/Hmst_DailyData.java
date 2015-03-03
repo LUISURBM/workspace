@@ -12,16 +12,18 @@ import sia.cmmad.hibernate.HibernateSessionFactory;
 
 public class Hmst_DailyData {
 
-	private static String SUMATORIA_SQL = "select TO_CHAR (dldt_datadate, 'mm'), TO_CHAR (dldt_datadate, 'yyyy'), dldt_idvariable, sum(TO_CHAR(dldt_data,'9999999.99')) from HMST_DAILYDATA where (dldt_idstation = :p_estacion) and (to_char(dldt_datadate,'YYYY-MM-DD')  between :p_fecha_desde and :p_fecha_hasta) and (dldt_idvariable = :p_var) group by to_char(dldt_datadate,'mm'),to_char(dldt_datadate,'yyyy'), dldt_idvariable";
+	private static String SUMATORIA_SQL = "select to_char(dldt_datadate,'mm'),to_char(dldt_datadate,'yyyy'), dldt_idvariable, sum(dlDT_DATA), decada from (select dldt_idstation,dldt_datadate, dldt_idvariable, to_number(replace(dlDT_DATA,'.',',')) dlDT_DATA, 1 decada from HMST_DAILYDATA,      idt_measure_fields mf where dldt_idstation = :p_estacion and TO_CHAR(dldt_datadate,'YYYY-MM-DD') between :p_fecha_desde and :p_fecha_hasta and to_char(dldt_datadate,'dd') between 1 and 10 and mf.msfl_code = dldt_idvariable AND mf.MSFL_FRC_CODE = :p_fml_code_frecuencia and mf.MSFL_MSTP_CODE = :p_fml_code_grupo and mf.msfl_code = :p_var union select dldt_idstation,dldt_datadate, dldt_idvariable, to_number(replace(dlDT_DATA,'.',',')) dlDT_DATA, 2   from HMST_DAILYDATA,         idt_measure_fields mf where dldt_idstation = :p_estacion AND mf.MSFL_FRC_CODE = :p_fml_code_frecuencia and mf.MSFL_MSTP_CODE = :p_fml_code_grupo and mf.msfl_code = :p_var and TO_CHAR(dldt_datadate,'YYYY-MM-DD') between :p_fecha_desde and :p_fecha_hasta and to_char(dldt_datadate,'dd') between 11 and 20 and mf.msfl_code = dldt_idvariable union select dldt_idstation,dldt_datadate, dldt_idvariable, to_number(replace(dlDT_DATA,'.',',')) dlDT_DATA, 3  from HMST_DAILYDATA,         idt_measure_fields mf where dldt_idstation = :p_estacion and TO_CHAR(dldt_datadate,'YYYY-MM-DD') between :p_fecha_desde and :p_fecha_hasta and to_char(dldt_datadate,'dd') between 21 and 31 and mf.msfl_code = dldt_idvariable AND mf.MSFL_FRC_CODE = :p_fml_code_frecuencia and mf.MSFL_MSTP_CODE = :p_fml_code_grupo and mf.msfl_code = :p_var ) group by dldt_idstation,to_char(dldt_datadate,'mm'),to_char(dldt_datadate,'yyyy'), dldt_idvariable, decada ";
 
-	
-	public static List<Object[]> getCubeDecadales(String codigo, int fechaInicio,
-			int fechaFin, String frecuenciaDiaria, String grupoMedicion,
-			String variable) {
+	public static List<Object[]> getCubeDecadales(String codigo,
+			int fechaInicio, int fechaFin, String frecuenciaDiaria,
+			String grupoMedicion, String variable) {
 
-		return BDOperacion.obtenerDecadalesMuliAnual(Utiles.formatoSql(
-				SUMATORIA_SQL, codigo, fechaInicio, fechaFin, frecuenciaDiaria,
-				grupoMedicion, variable));
+		return HibernateSessionFactory
+				.currentSession()
+				.createSQLQuery(
+						Utiles.formatoSql(SUMATORIA_SQL, codigo, fechaInicio,
+								fechaFin, frecuenciaDiaria, grupoMedicion,
+								variable)).list();
 	}
 
 }

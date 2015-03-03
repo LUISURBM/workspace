@@ -1,12 +1,16 @@
 package sia.cmmad.bean;
 
 import java.awt.event.ActionEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -18,6 +22,7 @@ import org.apache.commons.lang.ObjectUtils;
 import org.icefaces.ace.component.maskedentry.MaskedEntry;
 import org.jboss.logging.Logger;
 
+import sia.cmmad.bean.util.MyResource;
 import sia.cmmad.bean.util.Utiles;
 import sia.cmmad.hibernate.BDOperacion;
 import sia.cmmad.hidromet.Hmst_DailyData;
@@ -40,6 +45,7 @@ public class FacadeBean implements Serializable {
 	private String variable = "";
 	private String fechaInicio = "";
 	private String fechaFin = "";
+	private Resource resource;
 
 	private static void cargarBACK() {
 		HttpServletRequest origRequest = (HttpServletRequest) FacesContext
@@ -172,21 +178,33 @@ public class FacadeBean implements Serializable {
 			return "./ReporteRQ866.xlsx";
 		} else if (getTipoReporte().equals(
 				NombresTitulosAplicacion.TITULO_REPORTE_DECADAL.nombreTitulo)) {
-			data = Hmst_DailyData.getCubeDecadales(estacion.getCodigoEstacion().getValue()
-					.toString(), getFechaInicioInteger(), getFechaFinInteger(),
+			data = Hmst_DailyData.getCubeDecadales(estacion.getCodigoEstacion()
+					.getValue().toString(), getFechaInicioInteger(),
+					getFechaFinInteger(),
 					NombresTitulosAplicacion.FRECUENCIA_DIARIA.nombreTitulo,
 					getGrupoMedicion(), getVariable());
-			Utiles.setDataXLSX(data, data, getFechaInicioInteger(),
+			Utiles.setDataXLSX(data, getFechaInicioInteger(),
 					getFechaFinInteger(),
 					NombresTitulosAplicacion.DECADAL.nombreTitulo,
 					getGrupoMedicion(), getVariable());
+			try {
+				this.resource = new MyResource(
+						Utiles.readIntoByteArray(new FileInputStream(Utiles
+								.getArchivoReporteDCD())));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return "/ReporteRQ866DCD.xlsx";
 		} else {
 			return "./ReporteRQ866.xlsx";
 		}
 	}
 
-		private String getFrecuencia() {
+	private String getFrecuencia() {
 		return null;
 	}
 
