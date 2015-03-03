@@ -41,6 +41,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Directorios innecesarios
 .snap
 .index
 .resources
