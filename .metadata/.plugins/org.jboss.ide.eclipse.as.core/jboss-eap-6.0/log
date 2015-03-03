@@ -692,3 +692,204 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.jboss.jbd
 
 !ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 15:26:18.511
 !MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 15:45:44.873
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 15:56:31.791
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:00:54.249
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 16:05:07.599
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 16:05:07.978
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 16:05:08.201
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:05:33.890
+!MESSAGE Module BQL published without error.
+
+!ENTRY org.eclipse.wst.server.core 4 1644298251 2015-03-03 16:05:34.286
+!MESSAGE Could not delete D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 1644298251 2015-03-03 16:05:34.286
+!MESSAGE Error copying file D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx: D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx (El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso)
+!STACK 0
+java.io.FileNotFoundException: D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx (El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.jboss.ide.eclipse.as.core.util.FileUtil.writeTo(FileUtil.java:295)
+	at org.jboss.ide.eclipse.as.core.util.FileUtil.writeTo(FileUtil.java:289)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:84)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.moveTempFile(LocalCopyCallback.java:150)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:108)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:66)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.copy(PublishCopyUtil.java:247)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.publishFull(PublishCopyUtil.java:213)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.initFullPublish(PublishCopyUtil.java:198)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractServerToolsPublisher.fullPublish(AbstractServerToolsPublisher.java:230)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractServerToolsPublisher.publishModule(AbstractServerToolsPublisher.java:106)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.JBoss7JSTPublisher.publishModuleToAS7(JBoss7JSTPublisher.java:59)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.JBoss7JSTPublisher.publishModule(JBoss7JSTPublisher.java:39)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractPublishMethod.publishModule(AbstractPublishMethod.java:76)
+	at org.jboss.ide.eclipse.as.core.server.internal.DeployableServerBehavior.publishModule(DeployableServerBehavior.java:120)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.DelegatingJBoss7ServerBehavior.publishModule(DelegatingJBoss7ServerBehavior.java:74)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModule(ServerBehaviourDelegate.java:1091)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModules(ServerBehaviourDelegate.java:1183)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:987)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:774)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3153)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:345)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:05:49.984
+!MESSAGE Module BQL published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:05:52.014
+!MESSAGE Module ConsultaSeries published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 16:06:09.912
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 16:06:30.726
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:23:04.719
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2015-03-03 16:23:11.162
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 16:23:12.361
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 16:23:12.449
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 16:23:12.450
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 16:23:17.439
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 16:23:17.505
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:32:16.355
+!MESSAGE 3 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 16:32:23.547
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 16:32:54.435
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:37:38.016
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:43:30.509
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:43:58.506
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 16:55:53.927
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 17:16:43.383
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2015-03-03 17:17:12.184
+!MESSAGE Module ConsultaSeries on jboss-eap-6.0 not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:17:59.090
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:17:59.426
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:17:59.601
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 17:18:26.187
+!MESSAGE Module BQL published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 17:18:39.874
+!MESSAGE Module ConsultaSeries published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 17:18:47.278
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 17:19:58.909
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 17:26:29.572
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 17:29:43.815
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:31:58.433
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:31:58.595
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:31:58.728
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 17:35:52.660
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 17:35:58.017
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 17:36:24.967
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:55:34.239
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:55:34.331
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 17:55:34.332
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 17:55:39.826
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 17:55:44.912
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 17:55:58.732
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 18:01:42.515
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 18:06:55.453
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 18:07:07.569
+!MESSAGE 3 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 18:10:28.954
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 18:11:06.743
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 18:16:09.840
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 18:23:52.488
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 18:26:35.059
+!MESSAGE 1 files modified in module ConsultaSeries

@@ -5340,3 +5340,135 @@ Binding(ALT+SHIFT+ARROW_LEFT,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+
+!ENTRY org.eclipse.jdt.debug 4 125 2015-03-03 15:55:29.273
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+org.eclipse.jdi.TimeoutException: Timeout occurred while waiting for packet 2346.
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:186)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:258)
+	at org.eclipse.jdi.internal.ReferenceTypeImpl.genericSignature(ReferenceTypeImpl.java:2059)
+	at org.eclipse.jdt.internal.debug.core.model.JDIReferenceType.getGenericName(JDIReferenceType.java:280)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getDeclaringTypeName(JDIStackFrame.java:805)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.getHoverInfo2(JavaDebugHover.java:387)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:129)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:85)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+
+!ENTRY org.eclipse.wst.server.core 4 1644298251 2015-03-03 16:05:34.288
+!MESSAGE Could not delete D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 1644298251 2015-03-03 16:05:34.288
+!MESSAGE Error copying file D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx: D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx (El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso)
+!STACK 0
+java.io.FileNotFoundException: D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx (El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.jboss.ide.eclipse.as.core.util.FileUtil.writeTo(FileUtil.java:295)
+	at org.jboss.ide.eclipse.as.core.util.FileUtil.writeTo(FileUtil.java:289)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:84)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.moveTempFile(LocalCopyCallback.java:150)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:108)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:66)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.copy(PublishCopyUtil.java:247)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.publishFull(PublishCopyUtil.java:213)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.initFullPublish(PublishCopyUtil.java:198)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractServerToolsPublisher.fullPublish(AbstractServerToolsPublisher.java:230)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractServerToolsPublisher.publishModule(AbstractServerToolsPublisher.java:106)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.JBoss7JSTPublisher.publishModuleToAS7(JBoss7JSTPublisher.java:59)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.JBoss7JSTPublisher.publishModule(JBoss7JSTPublisher.java:39)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractPublishMethod.publishModule(AbstractPublishMethod.java:76)
+	at org.jboss.ide.eclipse.as.core.server.internal.DeployableServerBehavior.publishModule(DeployableServerBehavior.java:120)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.DelegatingJBoss7ServerBehavior.publishModule(DelegatingJBoss7ServerBehavior.java:74)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModule(ServerBehaviourDelegate.java:1091)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModules(ServerBehaviourDelegate.java:1183)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:987)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:774)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3153)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:345)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.wst.server.core 4 1644298251 2015-03-03 16:05:34.315
+!MESSAGE Could not delete D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 1644298251 2015-03-03 16:05:34.315
+!MESSAGE Error copying file D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx: D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx (El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso)
+!STACK 0
+java.io.FileNotFoundException: D:\Applications\jbdevstudio\runtimes\jboss-eap-6.0\standalone\deployments\ConsultaSeries.war\ReporteRQ866DCD.xlsx (El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.jboss.ide.eclipse.as.core.util.FileUtil.writeTo(FileUtil.java:295)
+	at org.jboss.ide.eclipse.as.core.util.FileUtil.writeTo(FileUtil.java:289)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:84)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.moveTempFile(LocalCopyCallback.java:150)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:108)
+	at org.jboss.ide.eclipse.as.core.util.LocalCopyCallback.copyFile(LocalCopyCallback.java:66)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.copy(PublishCopyUtil.java:247)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.publishFull(PublishCopyUtil.java:213)
+	at org.jboss.ide.eclipse.as.core.util.PublishCopyUtil.initFullPublish(PublishCopyUtil.java:198)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractServerToolsPublisher.fullPublish(AbstractServerToolsPublisher.java:230)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractServerToolsPublisher.publishModule(AbstractServerToolsPublisher.java:106)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.JBoss7JSTPublisher.publishModuleToAS7(JBoss7JSTPublisher.java:59)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.JBoss7JSTPublisher.publishModule(JBoss7JSTPublisher.java:39)
+	at org.jboss.ide.eclipse.as.core.publishers.AbstractPublishMethod.publishModule(AbstractPublishMethod.java:76)
+	at org.jboss.ide.eclipse.as.core.server.internal.DeployableServerBehavior.publishModule(DeployableServerBehavior.java:120)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.DelegatingJBoss7ServerBehavior.publishModule(DelegatingJBoss7ServerBehavior.java:74)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModule(ServerBehaviourDelegate.java:1091)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModules(ServerBehaviourDelegate.java:1183)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:987)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:774)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3153)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:345)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.jst.server.core 4 0 2015-03-03 16:23:17.507
+!MESSAGE Could not launch in profiling mode because no profilers are configured.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2015-03-03 17:16:39.632
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+org.eclipse.jdi.TimeoutException: Timeout occurred while waiting for packet 16985.
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:186)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.VirtualMachineImpl.classesBySignature(VirtualMachineImpl.java:638)
+	at org.eclipse.jdi.internal.VirtualMachineImpl.classesByName(VirtualMachineImpl.java:667)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.jdiClassesByName(JDIDebugTarget.java:1596)
+	at org.eclipse.jdt.internal.debug.core.hcr.JavaHotCodeReplaceManager.filterUnloadedTypes(JavaHotCodeReplaceManager.java:348)
+	at org.eclipse.jdt.internal.debug.core.hcr.JavaHotCodeReplaceManager.doHotCodeReplace(JavaHotCodeReplaceManager.java:459)
+	at org.eclipse.jdt.internal.debug.core.hcr.JavaHotCodeReplaceManager.access$0(JavaHotCodeReplaceManager.java:442)
+	at org.eclipse.jdt.internal.debug.core.hcr.JavaHotCodeReplaceManager$1.run(JavaHotCodeReplaceManager.java:314)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1068)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1051)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:405)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.jdt.ui 2 0 2015-03-03 17:26:44.419
+!MESSAGE The 'org.eclipse.jdt.ui.JavaAllCompletionProposalComputer' proposal computer from the 'org.eclipse.jdt.ui' plug-in did not complete normally. The extension took too long to return from the 'computeCompletionProposals()' operation.
+
+!ENTRY org.eclipse.jface 2 0 2015-03-03 17:59:14.637
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2015-03-03 17:59:14.637
+!MESSAGE A conflict occurred for CTRL+R:
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.RunToLine,Run to Line,
+		Resume and break when execution reaches the current line,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.MakeHandlersGo@143178dc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.jboss.tools.vpe.commands.refreshCommand,Refresh,
+		,
+		Category(org.jboss.tools.vpe.category,Visual Page Editor,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@200bd7c0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.jboss.tools.vpe.editorContext,,,system)
