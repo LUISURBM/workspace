@@ -532,3 +532,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.jboss.jbd
 
 !ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:11:47.984
 !MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:14:43.327
+!MESSAGE 1 files modified in module ConsultaSeries
