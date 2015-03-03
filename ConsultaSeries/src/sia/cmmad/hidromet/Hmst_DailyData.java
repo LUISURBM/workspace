@@ -12,7 +12,7 @@ import sia.cmmad.hibernate.HibernateSessionFactory;
 
 public class Hmst_DailyData {
 
-	private static String SUMATORIA_SQL = "select TO_CHAR (dldt_datadate, 'mm'), TO_CHAR (dldt_datadate, 'yyyy'), dldt_idvariable, sum(TO_CHAR(dldt_data,'9999999.99')) from HMST_DAILYDATA,      idt_measure_fields mf where (dldt_idstation = :p_estacion) and (to_char(dldt_datadate,'YYYY-MM-DD')  between :p_fecha_desde and :p_fecha_hasta) and (to_char(dldt_datadate,'dd') between 21 and 31) and (mf.msfl_code = dldt_idvariable) AND (mf.MSFL_FRC_CODE = :p_fml_code_frecuencia) and (mf.MSFL_MSTP_CODE = :p_fml_code_grupo) and (mf.msfl_code = :p_var) group by to_char(dldt_datadate,'mm'),to_char(dldt_datadate,'yyyy'), dldt_idvariable";
+	private static String SUMATORIA_SQL = "select TO_CHAR (dldt_datadate, 'mm'), TO_CHAR (dldt_datadate, 'yyyy'), dldt_idvariable, sum(TO_CHAR(dldt_data,'9999999.99')) from HMST_DAILYDATA where (dldt_idstation = :p_estacion) and (to_char(dldt_datadate,'YYYY-MM-DD')  between :p_fecha_desde and :p_fecha_hasta) and (dldt_idvariable = :p_var) group by to_char(dldt_datadate,'mm'),to_char(dldt_datadate,'yyyy'), dldt_idvariable";
 
 	
 	public static List<Object[]> getCubeDecadales(String codigo, int fechaInicio,

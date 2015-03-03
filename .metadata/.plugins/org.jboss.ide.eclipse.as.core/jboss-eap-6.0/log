@@ -535,3 +535,87 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.jboss.jbd
 
 !ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:14:43.327
 !MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:16:58.979
+!MESSAGE Module ConsultaSeries published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:17:54.341
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:20:28.790
+!MESSAGE 2 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:22:50.635
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:31:19.536
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:31:21.873
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:32:47.081
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2015-03-03 11:40:13.031
+!MESSAGE Module ConsultaSeries on jboss-eap-6.0 not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:40:23.373
+!MESSAGE 1 files modified in module ConsultaSeries
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:40:25.614
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:40:25.866
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:40:25.961
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 11:40:34.129
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2015-03-03 11:40:34.484
+!MESSAGE Module ConsultaSeries on jboss-eap-6.0 still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 11:41:06.280
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:41:36.258
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:41:36.365
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:41:36.366
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 11:41:43.183
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 11:41:59.959
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:47:54.698
+!MESSAGE Module BQL published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2015-03-03 11:47:59.545
+!MESSAGE Module ConsultaSeries published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2015-03-03 11:47:59.678
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:48:01.330
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:48:01.332
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2015-03-03 11:48:01.333
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-03-03 11:48:59.829
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-03-03 11:49:16.106
+!MESSAGE Server Startup Succeeded

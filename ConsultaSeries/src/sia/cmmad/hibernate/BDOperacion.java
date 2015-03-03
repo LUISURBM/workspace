@@ -101,6 +101,9 @@ import sia.cmmad.bean.util.Utiles;
 			stmt = c.createStatement();
 			rs = stmt.executeQuery(formatoSql);
 			while (rs.next()) {
+				System.out.println(rs.getString(1));
+				System.out.println(rs.getString(2));
+				System.out.println(rs.getString(3));
 				System.out.println(rs.getString(4));
 			}
 		} catch(Exception e){}finally {

@@ -177,13 +177,13 @@ import org.jboss.logging.Logger;
 			String grupoMedicion, String variable) {
 
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fecha_desde", "'"
-				+ fechaInicio + "-01-01'");
+				+ fechaInicio + "-11-21'");
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fecha_hasta", "'" + fechaFin
-				+ "-12-31'");
-		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fml_code_frecuencia", "'"
-				+ frecuenciaDiaria + "'");
-		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fml_code_grupo", "'"
-				+ grupoMedicion + "'");
+				+ "-11-31'");
+		// sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fml_code_frecuencia", "'"
+		// + frecuenciaDiaria + "'");
+		// sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_fml_code_grupo", "'"
+		// + grupoMedicion + "'");
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_var", "'" + variable + "'");
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_estacion", ""
 				+ asNumeric(codigo) + "");
