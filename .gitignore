@@ -13,7 +13,10 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
-
+*.snap
+*.index
+*.resources
+*.dat
 # Windows shortcuts
 *.lnk
 
@@ -41,9 +44,3 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-
-#Directorios innecesarios
-.snap
-.index
-.resources
-.dat
