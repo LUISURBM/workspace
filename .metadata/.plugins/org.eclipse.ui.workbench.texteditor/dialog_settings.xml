@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="328" key="DIALOG_WIDTH"/>
 		<item value="8" key="DIALOG_Y_ORIGIN"/>
-		<item value="451" key="DIALOG_HEIGHT"/>
 		<item value="984" key="DIALOG_X_ORIGIN"/>
+		<item value="451" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="diasMes" key="selection"/>
+		<item value="Hmst_DailyData" key="selection"/>
 		<list key="findhistory">
-			<item value="diasMes"/>
-			<item value="variable"/>
-			<item value="+"/>
-			<item value="3"/>
-			<item value="DECADA"/>
-			<item value="setDataXLSX"/>
-			<item value="GRUPOS"/>
-			<item value="inputnombreEstacion"/>
+			<item value="hmst_dailydata"/>
+			<item value="dldt"/>
+			<item value="mndt"/>
+			<item value="cargarEncabezadoArchivo"/>
+			<item value="getRow(13)"/>
+			<item value="getRow(12)"/>
+			<item value="getRow(11)"/>
+			<item value="titulo"/>
 		</list>
 		<list key="replacehistory">
-			<item value=","/>
-			<item value="estacion.getInput"/>
-			<item value="getInput"/>
-			<item value="TO_CHAR(dldt_datadate,&apos;YYYY-MM-DD&apos;)"/>
+			<item value="hmst_monthlydata"/>
+			<item value="mndt"/>
+			<item value="dmdt"/>
+			<item value="getRow(14)"/>
+			<item value="getRow(13)"/>
 			<item value=""/>
-			<item value="DLD"/>
-			<item value="to_char(dldt_datadate,&apos;YYYY-MM-DD&apos;)  "/>
-			<item value="to_char(dldt_datadate,&apos;YYYY-MM-DD&apos;) "/>
+			<item value="getRow(12)"/>
+			<item value="DatoLimite"/>
 		</list>
 	</section>
 </section>

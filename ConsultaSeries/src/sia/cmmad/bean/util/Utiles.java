@@ -7,12 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Date;
-import java.util.Iterator;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
-import org.apache.poi.openxml4j.opc.Package;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -21,20 +18,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jboss.logging.Logger;
 
 import sia.cmmad.bean.FacadeBean;
 import sia.cmmad.bean.InformacionEstacion;
-import sia.cmmad.hidromet.Hmst_DailyData;
 
 /*  29:    */
 /*  30:    */public final class Utiles
@@ -119,11 +112,17 @@ import sia.cmmad.hidromet.Hmst_DailyData;
 		/* 149 */Sheet sheet = wb.getSheetAt(0);
 
 		/*     */
-		/* 151 */final Row cab = sheet.getRow(10);
+		/* 151 */Row cab = sheet.getRow(10);
 
-		Cell reporte = cab.getCell(2);
+		Cell reporte = cab.getCell(0);
 		String titulo = reporte.getStringCellValue() + " " + frecuencia + ": "
 				+ grupoMedicion + " - " + nombreVariablesMedicion(variable);
+		reporte.setCellValue(titulo);
+		cab = sheet.getRow(11);
+		reporte = cab.getCell(0);
+		titulo = " Fecha proceso: "
+				+ GregorianCalendar.getInstance().getTime().toString()
+				+ " Periodo: " + fechaInicio + " " + fechaFin;
 		reporte.setCellValue(titulo);
 
 		/* 164 */int años = fechaFin - fechaInicio;
@@ -132,8 +131,8 @@ import sia.cmmad.hidromet.Hmst_DailyData;
 		/*     */
 		InformacionEstacion estacion = Utiles.evaluar("#{Estacion}");
 		cargarEncabezadoArchivo(sheet, estacion);
-		sheet.removeRow(sheet.getRow(14));
-		Row encab = sheet.createRow(14);
+		sheet.removeRow(sheet.getRow(15));
+		Row encab = sheet.createRow(15);
 		while (i < 7) {
 			encab.createCell(i + 4).setCellValue(encabezadoMAM[i]);
 			i++;
@@ -142,9 +141,17 @@ import sia.cmmad.hidromet.Hmst_DailyData;
 		i = 0;
 		Row fila = null;
 		int d = 0;
+
+		DatoLimite dMax = new DatoLimite();
+		dMax.setDato(ObjectUtils.toString(0));
+		DatoLimite dMin = new DatoLimite();
+		dMin.setDato(ObjectUtils.toString(0));
+		Long nvalor = 0l;
+		String nfecha = "";
 		while (i < 12) {
-			fila = sheet.createRow(15 + i);
-			fila.createCell(3).setCellValue(meses[i]);
+			nvalor = 0l;
+			fila = sheet.createRow(16 + i);
+			fila.createCell(4).setCellValue(meses[i]);
 			int c = 0;
 			i++;// Bucle filas
 			long medios = 0l;
@@ -158,8 +165,28 @@ import sia.cmmad.hidromet.Hmst_DailyData;
 					break;
 				}
 				if (Integer.parseInt(mes) == i) {
-					medios += Long.parseLong(data.get(d - 1)[4].toString());
-					fila.createCell(6).setCellValue(medios / diasMes[i - 1]);
+					nvalor = Long.parseLong(data.get(d - 1)[4].toString());
+					nfecha = Long.parseLong(data.get(d - 1)[2].toString())
+							+ "-"
+							+ Long.parseLong(data.get(d - 1)[0].toString())
+							+ "-"
+							+ Long.parseLong(data.get(d - 1)[1].toString());
+					medios += nvalor;
+					fila.createCell(5).setCellValue(medios / diasMes[i - 1]);
+					if (nvalor >= dMax.getDatoInt()) {
+						dMax.setDato(nvalor.toString());
+						dMax.setFecha(nfecha);
+						fila.createCell(6).setCellValue(nvalor.toString());
+						fila.createCell(7).setCellValue(nfecha);
+					}
+					if (nvalor <= dMin.getDatoInt()) {
+						dMin.setDato(nvalor.toString());
+						dMin.setFecha(nfecha);
+						fila.createCell(8).setCellValue(nvalor.toString());
+						fila.createCell(9).setCellValue(nfecha);
+					}
+					fila.createCell(10).setCellValue(años);
+					data.get(d - 1)[4].toString();
 					data.remove(d - 1);
 					d = 0;
 				}
@@ -205,11 +232,17 @@ import sia.cmmad.hidromet.Hmst_DailyData;
 			/* 149 */Sheet sheet = wb.getSheetAt(0);
 
 			/*     */
-			/* 151 */final Row cab = sheet.getRow(10);
+			/* 151 */Row cab = sheet.getRow(10);
 
-			Cell reporte = cab.getCell(2);
+			Cell reporte = cab.getCell(0);
 			String titulo = reporte.getStringCellValue() + " " + frecuencia
 					+ ": " + grupoMedicion + " - " + variable;
+			reporte.setCellValue(titulo);
+			cab = sheet.getRow(11);
+			reporte = cab.getCell(0);
+			titulo = " Fecha proceso: "
+					+ GregorianCalendar.getInstance().getTime().toString()
+					+ " Periodo: " + fechaInicio + " " + fechaFin;
 			reporte.setCellValue(titulo);
 
 			/* 164 */int años = fechaFin - fechaInicio;
@@ -226,7 +259,7 @@ import sia.cmmad.hidromet.Hmst_DailyData;
 				int decadas = 0;
 				i++;// Bucle filas
 				while (decadas < 3) {
-					Row fila = sheet.createRow(15 + ((i - 1) * 3) + decadas);
+					Row fila = sheet.createRow(16 + ((i - 1) * 3) + decadas);
 
 					if (decadas == 0) {
 						fila.createCell(0).setCellValue(fechaInicio + i - 1);
@@ -258,7 +291,7 @@ import sia.cmmad.hidromet.Hmst_DailyData;
 										vlAnual += Long.parseLong(data
 												.get(d - 1)[3].toString());
 										int dividendo = 1;
-										if (Utiles.totales(variable)) {
+										if (!Utiles.totales(variable)) {
 											dividendo = 12;
 										}
 										fila.createCell(14).setCellValue(
@@ -312,40 +345,40 @@ import sia.cmmad.hidromet.Hmst_DailyData;
 
 	private static void cargarEncabezadoArchivo(Sheet sheet,
 			InformacionEstacion estacion) {
-		Cell reporte = sheet.getRow(11).getCell(2);
+		Cell reporte = sheet.getRow(12).getCell(2);
 		reporte.setCellValue((estacion.getInputcodInternoEstacion().getValue()
 				.toString()));
-		reporte = sheet.getRow(11).getCell(5);
+		reporte = sheet.getRow(12).getCell(5);
 		reporte.setCellValue(estacion.getInputelevacion().getValue().toString());
-		reporte = sheet.getRow(11).getCell(7);
+		reporte = sheet.getRow(12).getCell(7);
 		reporte.setCellValue(estacion.getInputnombreEstacion().getValue()
 				.toString());
-		reporte = sheet.getRow(11).getCell(12);
+		reporte = sheet.getRow(12).getCell(12);
 		reporte.setCellValue(estacion.getInputsubzonaHidrografica().getValue()
 				.toString());
-		reporte = sheet.getRow(12).getCell(2);
+		reporte = sheet.getRow(13).getCell(2);
 		reporte.setCellValue(estacion.getInputlatitud().getValue().toString());
-		reporte = sheet.getRow(12).getCell(5);
+		reporte = sheet.getRow(13).getCell(5);
 		reporte.setCellValue(estacion.getInputareaHidrografica().getValue()
 				.toString());
-		reporte = sheet.getRow(12).getCell(7);
+		reporte = sheet.getRow(13).getCell(7);
 		reporte.setCellValue(estacion.getInputcategoria().getValue().toString());
-		reporte = sheet.getRow(12).getCell(10);
+		reporte = sheet.getRow(13).getCell(10);
 		reporte.setCellValue(estacion.getInputdepartamento().getValue()
 				.toString());
-		reporte = sheet.getRow(12).getCell(13);
+		reporte = sheet.getRow(13).getCell(13);
 		reporte.setCellValue(estacion.getInputareaOperativa().getValue()
 				.toString());
-		reporte = sheet.getRow(13).getCell(2);
+		reporte = sheet.getRow(14).getCell(2);
 		reporte.setCellValue(estacion.getInputlongitud().getValue().toString());
-		reporte = sheet.getRow(13).getCell(5);
+		reporte = sheet.getRow(14).getCell(5);
 		reporte.setCellValue(estacion.getInputzonaHidrografica().getValue()
 				.toString());
-		reporte = sheet.getRow(13).getCell(7);
+		reporte = sheet.getRow(14).getCell(7);
 		reporte.setCellValue(estacion.getInputentidad().getValue().toString());
-		reporte = sheet.getRow(13).getCell(10);
+		reporte = sheet.getRow(14).getCell(10);
 		reporte.setCellValue(estacion.getInputmunicipio().getValue().toString());
-		reporte = sheet.getRow(13).getCell(13);
+		reporte = sheet.getRow(14).getCell(13);
 		reporte.setCellValue(estacion.getInputcorriente().getValue().toString());
 	}
 
