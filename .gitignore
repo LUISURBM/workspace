@@ -17,6 +17,8 @@ $RECYCLE.BIN/
 *.index
 *.resources
 *.dat
+*.metadata
+*.index
 
 # Windows shortcuts
 *.lnk
