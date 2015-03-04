@@ -167,12 +167,10 @@ import sia.cmmad.bean.InformacionEstacion;
 										data.remove(i - 1);
 									}
 								}
-
 							} else {
 
 							}
 						}
-						// }
 					}
 				}
 			}
@@ -194,8 +192,7 @@ import sia.cmmad.bean.InformacionEstacion;
 	private static void cargarEncabezadoArchivo(Sheet sheet,
 			InformacionEstacion estacion) {
 		Cell reporte = sheet.getRow(11).getCell(2);
-		reporte.setCellValue(Utiles.asNumeric(estacion.getCodigoEstacion()
-				.getValue().toString()));
+		reporte.setCellValue((estacion.getCod_interno_es()));
 		reporte = sheet.getRow(11).getCell(5);
 		reporte.setCellValue(estacion.getInputelevacion().getValue().toString());
 		reporte = sheet.getRow(11).getCell(7);
