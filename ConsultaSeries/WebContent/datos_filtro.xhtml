@@ -7,7 +7,7 @@
 	xmlns:ace="http://www.icefaces.org/icefaces/components"
 	xmlns:ice="http://www.icesoft.com/icefaces/component">
 
-	<h:panelGrid styleClass="panel_datos_filtro" columns="6"
+	<h:panelGrid styleClass="panel_datos_filtro" columns="7"
 		id="datosFiltro">
 		<ace:maskedEntry id="fini" mask="9999" size="4"
 			value="#{BeanFachada.fechaInicio}"
@@ -38,13 +38,12 @@
 			labelPosition="top">
 			<f:selectItems value="#{BeanFachada.variables}" />
 		</ace:simpleSelectOneMenu>
-		<ace:linkButton id="linkBttnStatic" value="GENERAR"
-			action="#{BeanFachada.getReportNavigation}">
-			<ace:ajax execute="@all" render="@all" />
-			<f:param name="grp" value="aceMenu" />
-			<f:param name="exp" value="pushButton" />
-		</ace:linkButton>
-
+		<a href="/ReporteRQ866.new.xls" target="_blank"> <ace:linkButton
+				id="linkBttnStatic" value="GENERAR"
+				action="#{BeanFachada.getReportNavigation}">
+				<ace:ajax execute="@all" render="@all" />
+			</ace:linkButton></a>
 	</h:panelGrid>
 
 </ui:composition>
+

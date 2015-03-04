@@ -5,19 +5,19 @@
   <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
    PATH="/index.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
-    ID="ReporteRQ866DCD.xlsx:#{BeanFachada.getReportNavigation}:#ReporteRQ866DCD.xlsx"
-    NAME="output" PATH="/ReporteRQ866DCD.xlsx"
-    TARGET="rules:#ReporteRQ866DCD.xlsx"
-    TITLE="#{BeanFachada.getReportNavigation}:ReporteRQ866DCD.xlsx" model-entity="JSFProcessItemOutput"/>
+    ID="ReporteRQ866DCD:#{BeanFachada.getReportNavigation}:#ReporteRQ866DCD.xls"
+    NAME="output" PATH="/ReporteRQ866DCD.xls"
+    TARGET="rules:#ReporteRQ866DCD.xls"
+    TITLE="#{BeanFachada.getReportNavigation}:ReporteRQ866DCD" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="ReporteRQ866MAM:#{BeanFachada.getReportNavigation}:#ReporteRQ866MAM.xlsx"
-    NAME="output1" PATH="/ReporteRQ866MAM.xlsx"
-    TARGET="rules:#ReporteRQ866MAM.xlsx"
+    ID="ReporteRQ866MAM:#{BeanFachada.getReportNavigation}:#ReporteRQ866MAM.xls"
+    NAME="output1" PATH="/ReporteRQ866MAM.xls"
+    TARGET="rules:#ReporteRQ866MAM.xls"
     TITLE="#{BeanFachada.getReportNavigation}:ReporteRQ866MAM" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#ReporteRQ866MAM.xlsx"
-  PATH="/ReporteRQ866MAM.xlsx" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#ReporteRQ866DCD.xlsx"
-  PATH="/ReporteRQ866DCD.xlsx" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ReporteRQ866MAM.xls"
+  PATH="/ReporteRQ866MAM.xls" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ReporteRQ866DCD.xls"
+  PATH="/ReporteRQ866DCD.xls" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

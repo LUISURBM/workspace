@@ -3,10 +3,12 @@
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,7 @@ import org.apache.poi.openxml4j.opc.Package;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -29,11 +32,20 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jboss.logging.Logger;
 
+import sia.cmmad.bean.FacadeBean;
 import sia.cmmad.bean.InformacionEstacion;
+import sia.cmmad.hidromet.Hmst_DailyData;
 
 /*  29:    */
 /*  30:    */public final class Utiles
 /* 31: */{
+	private static final String[] encabezadoMAM = { "MES", "MEDIOS", "MAXIMOS",
+			"FECHA MAX", "MINIMOS", "FECHA MIN", "Nro. AÑOS" };
+	private static final String[] meses = { "ENERO", "FEBRERO", "MARZO",
+			"ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEM", "OCTUBRE",
+			"NOVIEM", "DICIEM" };
+	private static final long[] diasMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30,
+			31, 30, 31 };
 	private static Logger log = Logger.getLogger(Utiles.class);
 
 	/* 135: */
@@ -97,21 +109,96 @@ import sia.cmmad.bean.InformacionEstacion;
 		/* 185:191 */mostrarMensaje(m);
 		/* 186: */}
 
-	/*     */public static void setDataXLSX(List<Object[]> data, int fechaInicio,
+	/*     */public static void setDataMAM(List<Object[]> data, int fechaInicio,
 			int fechaFin, String frecuencia, String grupoMedicion,
 			String variable) {
-		String[][] matriz = new String[14][fechaFin - fechaInicio + 1];
+		Workbook wb = Utiles.inicializaArchivo();
+		// /* 145 */XSSFWorkbook wb = new XSSFWorkbook(
+		// Utiles.getArchivoReporteDCD());
+
+		/* 149 */Sheet sheet = wb.getSheetAt(0);
+
+		/*     */
+		/* 151 */final Row cab = sheet.getRow(10);
+
+		Cell reporte = cab.getCell(2);
+		String titulo = reporte.getStringCellValue() + " " + frecuencia + ": "
+				+ grupoMedicion + " - " + nombreVariablesMedicion(variable);
+		reporte.setCellValue(titulo);
+
+		/* 164 */int años = fechaFin - fechaInicio;
+		/*     */
+		/* 166 */int i = 0;
+		/*     */
+		InformacionEstacion estacion = Utiles.evaluar("#{Estacion}");
+		cargarEncabezadoArchivo(sheet, estacion);
+		sheet.removeRow(sheet.getRow(14));
+		Row encab = sheet.createRow(14);
+		while (i < 7) {
+			encab.createCell(i + 4).setCellValue(encabezadoMAM[i]);
+			i++;
+		}
+
+		i = 0;
+		Row fila = null;
+		int d = 0;
+		while (i < 12) {
+			fila = sheet.createRow(15 + i);
+			fila.createCell(3).setCellValue(meses[i]);
+			int c = 0;
+			i++;// Bucle filas
+			long medios = 0l;
+			// while (c < encabezadoMAM.length) {
+			// c++;
+			while (d < data.size()) {
+				d++;
+				String mes = data.get(d - 1)[0].toString();
+				if (Integer.parseInt(mes) > i) {
+					d = 0;
+					break;
+				}
+				if (Integer.parseInt(mes) == i) {
+					medios += Long.parseLong(data.get(d - 1)[4].toString());
+					fila.createCell(6).setCellValue(medios / diasMes[i - 1]);
+					data.remove(d - 1);
+					d = 0;
+				}
+
+			}
+
+			// }
+		}
+
+		FileOutputStream fileOut = null;
+		try {
+			fileOut = new FileOutputStream(new File(
+					Utiles.getArchivoReporteDCD()));
+			wb.write(fileOut);
+			fileOut.flush();
+			fileOut.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+
+		}
+
+	}
+
+	/*     */public static void setDataDCD(List<Object[]> data, int fechaInicio,
+			int fechaFin, String frecuencia, String grupoMedicion,
+			String variable) {
+		// String[][] matriz = new String[14][fechaFin - fechaInicio + 1];
 
 		/*     */try {
 
-			FileUtils.copyFile(new File(Utiles.getArchivoReporte()), new File(
-					Utiles.getArchivoReporteDCD()));
-			log.debug(Utiles.getArchivoReporteDCD());
-
 			// FileInputStream fis = new FileInputStream(new File(Utiles
 			// .getArchivoReporteDCD()));
-			Workbook wb = WorkbookFactory.create(new FileInputStream(Utiles
-					.getArchivoReporteDCD()));
+			Workbook wb = Utiles.inicializaArchivo();
 			// /* 145 */XSSFWorkbook wb = new XSSFWorkbook(
 			// Utiles.getArchivoReporteDCD());
 
@@ -135,40 +222,56 @@ import sia.cmmad.bean.InformacionEstacion;
 			String año = "";
 			String decada = "1";
 
-			while (años - i > 0) {
+			while (años - i >= 0) {
 				int decadas = 0;
 				i++;// Bucle filas
-				while (decadas <= 3) {
-					Row fila = sheet.createRow(14 + i + decadas);
-					int celdas = 1;
-					fila.createCell(0).setCellValue(fechaInicio + i - 1);
+				while (decadas < 3) {
+					Row fila = sheet.createRow(15 + ((i - 1) * 3) + decadas);
+
+					if (decadas == 0) {
+						fila.createCell(0).setCellValue(fechaInicio + i - 1);
+					}
 					decadas++;
 					fila.createCell(1).setCellValue(decadas);
-					while (celdas <= 14) {
-						celdas++;// Bucle columnas
-						Cell itC = fila.createCell(celdas);
-						int d = 0;
-						int m = 1;
-						// while (m <= 14) {
-						// m++;
-						d = 0;
-						while (d < data.size()) {
-							d++;// Bucle data
-							año = data.get(d - 1)[1].toString();
-							if (((Integer.parseInt(año))) == (años - i - 1)) {
-								decada = data.get(d - 1)[4].toString();
-								if (decada.equals(decadas)) {
-									String mes = data.get(i - 1)[0].toString();
-									if (mes.equals(celdas + 2)) {
-										fila.createCell(celdas + 2)
-												.setCellValue(
-														data.get(i - 1)[3]
-																.toString());
-										data.remove(i - 1);
+
+					int d = 0;
+					int m = 1;
+					// while (m <= 14) {
+					// m++;
+					d = 0;
+					int celdas = 1;
+					long vlAnual = 0l;
+					while (d < data.size()) {
+						d++;// Bucle data
+						año = data.get(d - 1)[1].toString();
+						if ((Integer.parseInt(año) > fechaInicio + (i - 1))) {
+							break;
+						} else if (((Integer.parseInt(año))) == (fechaInicio + (i - 1))) {
+							decada = data.get(d - 1)[4].toString();
+							if (Integer.parseInt(decada) == (decadas)) {
+								String mes = data.get(d - 1)[0].toString();
+								while (celdas <= 13) {
+									celdas++;// Bucle columnas
+									if (Integer.parseInt(mes) == (celdas - 1)) {
+										fila.createCell(celdas).setCellValue(
+												data.get(d - 1)[3].toString());
+										vlAnual += Long.parseLong(data
+												.get(d - 1)[3].toString());
+										int dividendo = 1;
+										if (Utiles.totales(variable)) {
+											dividendo = 12;
+										}
+										fila.createCell(14).setCellValue(
+												vlAnual / dividendo);
+										data.remove(d - 1);
+										d = 0;
+										break;
+									} else {
+										continue;
 									}
 								}
 							} else {
-
+								break;
 							}
 						}
 					}
@@ -189,10 +292,29 @@ import sia.cmmad.bean.InformacionEstacion;
 
 		/*     */}
 
+	private static Workbook inicializaArchivo() {
+		Workbook wb = null;
+		try {
+			FileUtils.copyFile(new File(Utiles.getArchivoReporte()), new File(
+					Utiles.getArchivoReporteDCD()));
+
+			wb = WorkbookFactory.create(new FileInputStream(Utiles
+					.getArchivoReporteDCD()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return wb;
+	}
+
 	private static void cargarEncabezadoArchivo(Sheet sheet,
 			InformacionEstacion estacion) {
 		Cell reporte = sheet.getRow(11).getCell(2);
-		reporte.setCellValue((estacion.getCod_interno_es()));
+		reporte.setCellValue((estacion.getInputcodInternoEstacion().getValue()
+				.toString()));
 		reporte = sheet.getRow(11).getCell(5);
 		reporte.setCellValue(estacion.getInputelevacion().getValue().toString());
 		reporte = sheet.getRow(11).getCell(7);
@@ -235,7 +357,7 @@ import sia.cmmad.bean.InformacionEstacion;
 	public static String getArchivoReporteDCD() {
 		return FacesContext.getCurrentInstance().getExternalContext()
 				.getRealPath("/")
-				+ "ReporteRQ866DCD.xls";
+				+ "ReporteRQ866.new.xls";
 	}
 
 	public static String formatoSql(String sUMATORIA_SQL, String codigo,
@@ -254,7 +376,34 @@ import sia.cmmad.bean.InformacionEstacion;
 		sUMATORIA_SQL = sUMATORIA_SQL.replace(":p_estacion", ""
 				+ asNumeric(codigo) + "");
 
+		if (Utiles.totales(variable)) {
+
+		} else {
+			sUMATORIA_SQL = sUMATORIA_SQL.replace("sum(", "avg(");
+		}
+
 		return sUMATORIA_SQL;
+	}
+
+	private static boolean totales(String variable) {
+		variable = nombreVariablesMedicion(variable);
+		if (variable.toLowerCase().contains("precipita")
+				|| variable.toLowerCase().contains("evaporaci")
+				|| (variable.toLowerCase().contains("brillo") && variable
+						.toLowerCase().contains("solar"))) {
+			return true;
+		}
+		return false;
+	}
+
+	private static String nombreVariablesMedicion(String varMedicion) {
+		FacadeBean beanFachada = evaluar("#{BeanFachada}");
+		for (SelectItem item : beanFachada.getVariables()) {
+			if (item.getValue().equals(varMedicion)) {
+				return item.getLabel();
+			}
+		}
+		return "";
 	}
 
 	private static String asNumeric(String codigo) {

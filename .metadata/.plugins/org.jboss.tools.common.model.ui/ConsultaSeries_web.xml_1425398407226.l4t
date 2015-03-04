@@ -2,9 +2,9 @@
 <Layout resource="/ConsultaSeries/WebContent/WEB-INF/web.xml">
  <TreeFormPage>
   <Memento type="FileWebApp30">
-   <Memento type="Deployment Descriptor"/>
-   <Memento type="Context Params"/>
-   <Memento type="Advanced"/>
+   <Memento collapsed="false" type="Deployment Descriptor"/>
+   <Memento collapsed="false" type="Context Params"/>
+   <Memento collapsed="false" type="Advanced"/>
   </Memento>
  </TreeFormPage>
 </Layout>

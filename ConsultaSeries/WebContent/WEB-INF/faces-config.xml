@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
-	version="2.1">
+<faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
 	<managed-bean>
 		<managed-bean-name>BeanFachada</managed-bean-name>
 		<managed-bean-class>sia.cmmad.bean.FacadeBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
-	 <managed-bean>
-  <managed-bean-name>Estacion</managed-bean-name>
-  <managed-bean-class>sia.cmmad.bean.InformacionEstacion</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
-<application>
-<message-bundle>
-sia.cmmad.i18n.messages
-</message-bundle>
-</application>
-<navigation-rule>
+	<managed-bean>
+		<managed-bean-name>Estacion</managed-bean-name>
+		<managed-bean-class>sia.cmmad.bean.InformacionEstacion</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
 		<from-view-id>/index.xhtml</from-view-id>
-		<navigation-case><from-action>#{BeanFachada.getReportNavigation}</from-action>
-			<from-outcome>ReporteRQ866DCD.xlsx</from-outcome>
-			<to-view-id>/ReporteRQ866DCD.xlsx</to-view-id>
+		<navigation-case>
+			<from-action>#{BeanFachada.getReportNavigation}</from-action>
+			<from-outcome>ReporteRQ866DCD</from-outcome>
+			<to-view-id>/ReporteRQ866DCD.xls</to-view-id>
 			<redirect />
 		</navigation-case>
-		<navigation-case><from-action>#{BeanFachada.getReportNavigation}</from-action>
-		<from-outcome>ReporteRQ866MAM</from-outcome>
-		<to-view-id>/ReporteRQ866MAM.xlsx</to-view-id>
-	</navigation-case>
-	</navigation-rule></faces-config>
+		<navigation-case>
+			<from-action>#{BeanFachada.getReportNavigation}</from-action>
+			<from-outcome>ReporteRQ866MAM</from-outcome>
+			<to-view-id>/ReporteRQ866MAM.xls</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<application>
+		<message-bundle>sia.cmmad.i18n.messages</message-bundle>
+	</application>
+</faces-config>

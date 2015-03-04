@@ -3,7 +3,6 @@
 <fullyQualifiedTypeName name="org.icefaces.apache.commons.io.FileUtils"/>
 <fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
-<fullyQualifiedTypeName name="sia.cmmad.i18n.NombresTitulosAplicacion"/>
 <fullyQualifiedTypeName name="sia.cmmad.bean.InformacionEstacion"/>
 <fullyQualifiedTypeName name="sia.cmmad.hibernate.BDOperacion"/>
 <fullyQualifiedTypeName name="sia.cmmad.bean.util.Utiles"/>
@@ -32,4 +31,12 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.WorkbookFactory"/>
 <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Workbook"/>
+<fullyQualifiedTypeName name="javax.faces.context.ExternalContext"/>
+<fullyQualifiedTypeName name="sia.cmmad.i18n.NombresTitulosAplicacion"/>
+<fullyQualifiedTypeName name="com.icesoft.faces.component.InputTextareaTag"/>
+<fullyQualifiedTypeName name="com.icesoft.faces.component.ext.HtmlInputTextarea"/>
+<fullyQualifiedTypeName name="sia.cmmad.bean.FacadeBean"/>
+<fullyQualifiedTypeName name="javax.faces.model.SelectItem"/>
+<fullyQualifiedTypeName name="sia.cmmad.hidromet.Hmst_DailyData"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

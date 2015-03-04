@@ -5,18 +5,21 @@ import javax.faces.event.ValueChangeEvent;
 
 import org.icefaces.ace.component.maskedentry.MaskedEntry;
 
+import com.icesoft.faces.component.InputTextareaTag;
 import com.icesoft.faces.component.ext.HtmlInputText;
+import com.icesoft.faces.component.ext.HtmlInputTextarea;
 
 import static org.apache.commons.lang.StringUtils.isNumeric;
 
 public class InformacionEstacion {
 
 	private transient MaskedEntry codigoEstacion;
-	private transient HtmlInputText inputnombreEstacion, inputlongitud,
-			inputlatitud, inputelevacion, inputareaOperativa, inputentidad,
-			inputcategoria, inputdepartamento, inputmunicipio, inputcorriente,
-			inputareaHidrografica, inputzonaHidrografica,
-			inputsubzonaHidrografica;
+	private transient HtmlInputText inputnombreEstacion,
+			inputcodInternoEstacion, inputlongitud, inputlatitud,
+			inputelevacion, inputareaOperativa, inputentidad, inputcategoria,
+			inputdepartamento, inputmunicipio, inputcorriente,
+			inputareaHidrografica, inputzonaHidrografica;
+	private transient HtmlInputTextarea inputsubzonaHidrografica;
 	private transient String nombreEstacion, longitud, latitud, elevacion,
 			areaOperativa, entidad, categoria, departamento, municipio,
 			corriente, areaHidrografica, zonaHidrografica, subzonaHidrografica;
@@ -58,6 +61,14 @@ public class InformacionEstacion {
 
 	public void setInputnombreEstacion(HtmlInputText inputnombreEstacion) {
 		this.inputnombreEstacion = inputnombreEstacion;
+	}
+
+	public HtmlInputText getInputcodInternoEstacion() {
+		return inputcodInternoEstacion;
+	}
+
+	public void setInputcodInternoEstacion(HtmlInputText inputcodInternoEstacion) {
+		this.inputcodInternoEstacion = inputcodInternoEstacion;
 	}
 
 	public HtmlInputText getInputlongitud() {
@@ -148,12 +159,12 @@ public class InformacionEstacion {
 		this.inputzonaHidrografica = inputzonaHidrografica;
 	}
 
-	public HtmlInputText getInputsubzonaHidrografica() {
+	public HtmlInputTextarea getInputsubzonaHidrografica() {
 		return inputsubzonaHidrografica;
 	}
 
 	public void setInputsubzonaHidrografica(
-			HtmlInputText inputsubzonaHidrografica) {
+			HtmlInputTextarea inputsubzonaHidrografica) {
 		this.inputsubzonaHidrografica = inputsubzonaHidrografica;
 	}
 
@@ -337,6 +348,7 @@ public class InformacionEstacion {
 
 			setId_Es(informacion.getId_Es());
 			setCod_interno_es(informacion.getCod_interno_es());
+			inputcodInternoEstacion.setValue(informacion.getCod_interno_es());
 		}
 	}
 }

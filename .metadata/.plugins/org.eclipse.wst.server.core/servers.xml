@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <servers>
-  <server auto-publish-time="1" hostname="localhost" id="jboss-eap-6.0" name="jboss-eap-6.0" org.jboss.ide.eclipse.as.core.server.attributes.startupPollerKey="org.jboss.ide.eclipse.as.core.server.JBoss7ManagerServicePoller" org.jboss.ide.eclipse.as.core.server.deployDirectoryType="server" org.jboss.ide.eclipse.as.core.server.serverMode="local" org.jboss.ide.eclipse.as.core.server.webPort="8080" org.jboss.ide.eclipse.as.core.server.webPortAutoDetect="true" runtime-id="jboss-eap-6.0 Runtime" server-type="org.jboss.ide.eclipse.as.eap.60" server-type-id="org.jboss.ide.eclipse.as.eap.60" start-timeout="450" stop-timeout="450" timestamp="7">
-    <list key="modules" value0="BQL::org.eclipse.jst.jee.server:BQL::jst.web::3.0" value1="ConsultaSeries::org.eclipse.jst.jee.server:ConsultaSeries::jst.web::3.0"/>
+  <server auto-publish-time="1" hostname="localhost" id="jboss-eap-6.0" name="jboss-eap-6.0" org.jboss.ide.eclipse.as.core.server.attributes.startupPollerKey="org.jboss.ide.eclipse.as.core.server.JBoss7ManagerServicePoller" org.jboss.ide.eclipse.as.core.server.deployDirectoryType="server" org.jboss.ide.eclipse.as.core.server.serverMode="local" org.jboss.ide.eclipse.as.core.server.webPort="8080" org.jboss.ide.eclipse.as.core.server.webPortAutoDetect="true" runtime-id="jboss-eap-6.0 Runtime" server-type="org.jboss.ide.eclipse.as.eap.60" server-type-id="org.jboss.ide.eclipse.as.eap.60" start-timeout="450" stop-timeout="450" timestamp="14">
+    <list key="modules" value0="ConsultaSeries::org.eclipse.jst.jee.server:ConsultaSeries::jst.web::3.0"/>
   </server>
 </servers>

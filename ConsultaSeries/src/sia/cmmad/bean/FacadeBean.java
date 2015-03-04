@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
@@ -89,6 +90,11 @@ public class FacadeBean implements Serializable {
 			tipoReporte = Utiles.getTipoReporte();
 		}
 		log.debug("init() : " + Utiles.httpMethod());
+	}
+
+	public boolean isTipoReporteDcd() {
+		return Utiles.getTipoReporte().equals(
+				NombresTitulosAplicacion.TITULO_REPORTE_DECADAL.nombreTitulo);
 	}
 
 	public boolean isCambiosCombos() {
@@ -172,7 +178,7 @@ public class FacadeBean implements Serializable {
 	}
 
 	public String getReportNavigation() {
-		List data = null;
+		List<Object[]> data = null;
 		InformacionEstacion estacion = Utiles.evaluar("#{Estacion}");
 		if (Utiles.httpMethodGet()) {
 			return "./ReporteRQ866.xlsx";
@@ -183,25 +189,33 @@ public class FacadeBean implements Serializable {
 					getFechaFinInteger(),
 					NombresTitulosAplicacion.FRECUENCIA_DIARIA.nombreTitulo,
 					getGrupoMedicion(), getVariable());
-			Utiles.setDataXLSX(data, getFechaInicioInteger(),
+			Utiles.setDataDCD(data, getFechaInicioInteger(),
 					getFechaFinInteger(),
 					NombresTitulosAplicacion.DECADAL.nombreTitulo,
 					getGrupoMedicion(), getVariable());
-			try {
-				this.resource = new MyResource(
-						Utiles.readIntoByteArray(new FileInputStream(Utiles
-								.getArchivoReporteDCD())));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return "/ReporteRQ866DCD.xlsx";
+
 		} else {
-			return "./ReporteRQ866.xlsx";
+			data = Hmst_DailyData.getCubeMultianual(estacion
+					.getCodigoEstacion().getValue().toString(),
+					getFechaInicioInteger(), getFechaFinInteger(),
+					NombresTitulosAplicacion.FRECUENCIA_DIARIA.nombreTitulo,
+					getGrupoMedicion(), getVariable());
+
+			Utiles.setDataMAM(data, getFechaInicioInteger(),
+					getFechaFinInteger(),
+					NombresTitulosAplicacion.MULTIANUAL_MENSUAL.nombreTitulo,
+					getGrupoMedicion(), getVariable());
+
 		}
+		ExternalContext context = FacesContext.getCurrentInstance()
+				.getExternalContext();
+		try {
+			context.redirect("/ConsultaSeries/ReporteRQ866.new.xls");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "./ReporteRQ866.xlsx";
 	}
 
 	private String getFrecuencia() {
