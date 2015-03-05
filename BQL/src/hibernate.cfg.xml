@@ -6,7 +6,7 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.show_sql" >false</property>
-		<property name="connection.datasource">java:jboss/datasources/dsHIMEDESADEV</property>
+		<property name="connection.datasource">java:jboss/datasources/dsHIDROMET</property>
 		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		<mapping resource="sia/bql/hibernate/hidromet/HmstPath.hbm.xml" />

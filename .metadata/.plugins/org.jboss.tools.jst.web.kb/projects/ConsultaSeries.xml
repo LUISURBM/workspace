@@ -22,17 +22,17 @@
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/krysalis-jCharts-1.0.0-alpha-1.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/enterprise/deploy/api/main/jboss-jad-api_1.2_spec-1.0.1.Final-redhat-2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/log4j-1.2.17.jar"/>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/validation/api/main/validation-api-1.0.0.GA-redhat-2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/jsf-api.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/validation/api/main/validation-api-1.0.0.GA-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/interceptor/api/main/jboss-interceptors-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/jboss/logging/main/jboss-logging-3.1.2.GA-redhat-1.jar"/>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/xml/soap/api/main/jboss-saaj-api_1.3_spec-1.0.2.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/picketbox/main/picketbox-commons-1.0.0.final-redhat-2.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/xml/soap/api/main/jboss-saaj-api_1.3_spec-1.0.2.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/wsdl4j/api/main/wsdl4j-1.6.2-redhat-2.jar"/>
-  <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/commons-collections.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/commons-io-2.3.jar"/>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/enterprise/api/main/cdi-api-1.0-SP4-redhat-2.jar"/>
+  <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/commons-collections.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/inject/api/main/javax.inject-1-redhat-2.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/enterprise/api/main/cdi-api-1.0-SP4-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/xml/ws/api/main/jboss-jaxws-api_2.2_spec-2.0.1.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/xml/bind/api/main/jboss-jaxb-api_2.2_spec-1.0.4.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/ejb/api/main/jboss-ejb-api_3.1_spec-1.0.2.Final-redhat-2.jar"/>
@@ -65,8 +65,6 @@
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/antlr-2.7.2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/ojdbc14.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/xml/registry/api/main/jboss-jaxr-api_1.0_spec-1.0.2.Final-redhat-2.jar"/>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/picketbox/main/picketbox-4.0.14.Final-redhat-2.jar"/>
-  <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/xmlbeans-2.4.0.jar"/>
   <path value="D:/Applications/jbdevstudio/studio/plugins/org.icefaces.eclipse.library.oss.component.ace_3.3.0.201309251434/lib/icefaces-ace.jar">
    <libraries>
     <library class="tld"/>
@@ -74,6 +72,8 @@
     <library class="facelet"/>
    </libraries>
   </path>
+  <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/xmlbeans-2.4.0.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/picketbox/main/picketbox-4.0.14.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/security/jacc/api/main/jboss-jacc-api_1.4_spec-1.0.2.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/studio/plugins/org.icefaces.eclipse.library.oss.core_3.3.0.201309251434/lib/icefaces.jar">
    <libraries>
@@ -83,15 +83,15 @@
     <library class="faces-config"/>
    </libraries>
   </path>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/annotation/api/main/jboss-annotations-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/ws/rs/api/main/jboss-jaxrs-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/commons-logging.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/ws/rs/api/main/jboss-jaxrs-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/annotation/api/main/jboss-annotations-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/connector.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/commons-collections-3.1.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/jboss/resteasy/resteasy-jaxrs/main/resteasy-jaxrs-2.3.4.Final-redhat-2.jar"/>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/jws/api/main/jsr181-api-1.0-MR1-redhat-2.jar"/>
-  <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/encabezado.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/poi-3.9.jar"/>
+  <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/encabezado.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/jws/api/main/jsr181-api-1.0-MR1-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/persistence/api/main/hibernate-jpa-2.0-api-1.0.1.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/xml/rpc/api/main/jboss-jaxrpc-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/studio/plugins/org.icefaces.eclipse.library.oss.component.ice_3.3.0.201309251434/lib/krysalis-jCharts-1.0.0-alpha-1.jar"/>
@@ -102,7 +102,6 @@
     <library class="tld"/>
    </libraries>
   </path>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/jboss/resteasy/resteasy-multipart-provider/main/resteasy-multipart-provider-2.3.4.Final-redhat-2.jar"/>
   <path value="/ConsultaSeries/WebContent/WEB-INF/faces-config.xml">
    <libraries>
     <library class="faces-config">
@@ -111,6 +110,7 @@
     </library>
    </libraries>
   </path>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/jboss/resteasy/resteasy-multipart-provider/main/resteasy-multipart-provider-2.3.4.Final-redhat-2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/dom4j-1.6.1.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/servlet/jstl/api/main/jboss-jstl-api_1.2_spec-1.0.3.Final-redhat-2.jar">
    <libraries>
@@ -179,7 +179,7 @@
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/mail/api/main/mail-1.4.4-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/resource/api/main/jboss-connector-api_1.6_spec-1.0.1.Final-redhat-2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/poi-ooxml-3.5-beta5.jar"/>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/management/j2ee/api/main/jboss-j2eemgmt-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
+  <path value="D:/Applications/jbdevstudio/studio/plugins/org.icefaces.eclipse.library.oss.component.ice_3.3.0.201309251434/lib/jxl.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/jsf-impl.jar">
    <libraries>
     <library class="tld">
@@ -192,12 +192,12 @@
     </library>
    </libraries>
   </path>
-  <path value="D:/Applications/jbdevstudio/studio/plugins/org.icefaces.eclipse.library.oss.component.ice_3.3.0.201309251434/lib/jxl.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/management/j2ee/api/main/jboss-j2eemgmt-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/javax/transaction/api/main/jboss-transaction-api_1.1_spec-1.0.1.Final-redhat-2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/commons-beanutils-1.7.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/hibernate/validator/main/hibernate-validator-4.2.0.Final-redhat-2.jar"/>
-  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/picketbox/main/picketbox-infinispan-4.0.14.Final-redhat-2.jar"/>
   <path value="D:/Applications/jbdevstudio/studio/plugins/org.icefaces.eclipse.library.oss.component.ice_3.3.0.201309251434/lib/commons-logging.jar"/>
+  <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/picketbox/main/picketbox-infinispan-4.0.14.Final-redhat-2.jar"/>
   <path value="C:/Users/LuizFelipeUrbinaMore/workspace/ConsultaSeries/WebContent/WEB-INF/lib/asm.jar"/>
   <path value="D:/Applications/jbdevstudio/runtimes/jboss-eap-6.0/modules/org/jboss/resteasy/resteasy-jaxrs/main/async-http-servlet-3.0-2.3.4.Final-redhat-2.jar"/>
  </paths>
@@ -207,72 +207,72 @@
   </core>
   <core validator-id="jboss.jsf.core"/>
   <el>
-   <linked-el length="34" name="%9" offset="580" path="%10"/>
-   <linked-el length="52" name="%11" offset="2409" path="%10"/>
+   <linked-el length="52" name="%9" offset="2409" path="%10"/>
+   <linked-el length="34" name="%11" offset="580" path="%10"/>
    <linked-el length="56" name="%12" offset="2968" path="%10"/>
    <linked-el length="52" name="%13" offset="2409" path="%10"/>
    <linked-el length="52" name="%13" offset="1858" path="%10"/>
    <linked-el length="56" name="%13" offset="2968" path="%10"/>
-   <linked-el length="46" name="%14" offset="843" path="%15"/>
-   <linked-el length="48" name="%14" offset="629" path="%15"/>
-   <linked-el length="38" name="%16" offset="931" path="%10"/>
-   <linked-el length="46" name="%17" offset="843" path="%15"/>
+   <linked-el length="38" name="%14" offset="931" path="%10"/>
+   <linked-el length="46" name="%15" offset="843" path="%16"/>
+   <linked-el length="48" name="%15" offset="629" path="%16"/>
+   <linked-el length="46" name="%17" offset="843" path="%16"/>
    <linked-el length="27" name="%18" offset="1443" path="%10"/>
    <linked-el length="52" name="%19" offset="1858" path="%10"/>
-   <linked-el length="30" name="%20" offset="1783" path="%15"/>
-   <linked-el length="26" name="%21" offset="2023" path="%10"/>
+   <linked-el length="26" name="%20" offset="2023" path="%10"/>
+   <linked-el length="30" name="%21" offset="1783" path="%16"/>
    <linked-el length="33" name="%22" offset="1571" path="%10"/>
    <linked-el length="28" name="%23" offset="2704" path="%10"/>
    <linked-el length="28" name="%24" offset="2574" path="%10"/>
-   <linked-el length="31" name="%25" offset="1149" path="%15"/>
-   <linked-el length="36" name="%26" offset="2035" path="%15"/>
-   <linked-el length="27" name="%26" offset="1858" path="%15"/>
+   <linked-el length="31" name="%25" offset="1149" path="%16"/>
+   <linked-el length="36" name="%26" offset="2035" path="%16"/>
+   <linked-el length="27" name="%26" offset="1858" path="%16"/>
    <linked-el length="34" name="%26" offset="856" path="%0"/>
-   <linked-el length="32" name="%26" offset="1061" path="%15"/>
-   <linked-el length="34" name="%26" offset="1432" path="%15"/>
+   <linked-el length="32" name="%26" offset="1061" path="%16"/>
+   <linked-el length="34" name="%26" offset="1432" path="%16"/>
    <linked-el length="16" name="%26" offset="7566" path="%27"/>
    <linked-el length="22" name="%26" offset="564" path="%28"/>
-   <linked-el length="32" name="%26" offset="1569" path="%15"/>
+   <linked-el length="32" name="%26" offset="1569" path="%16"/>
    <linked-el length="16" name="%26" offset="13641" path="%29"/>
-   <linked-el length="26" name="%26" offset="914" path="%15"/>
-   <linked-el length="29" name="%26" offset="1717" path="%15"/>
-   <linked-el length="32" name="%26" offset="591" path="%15"/>
+   <linked-el length="26" name="%26" offset="914" path="%16"/>
+   <linked-el length="29" name="%26" offset="1717" path="%16"/>
+   <linked-el length="32" name="%26" offset="591" path="%16"/>
    <linked-el length="34" name="%26" offset="1081" path="%0"/>
    <linked-el length="52" name="%30" offset="2409" path="%10"/>
    <linked-el length="31" name="%30" offset="1714" path="%10"/>
-   <linked-el length="46" name="%30" offset="843" path="%15"/>
+   <linked-el length="46" name="%30" offset="843" path="%16"/>
    <linked-el length="38" name="%30" offset="931" path="%10"/>
    <linked-el length="27" name="%30" offset="1443" path="%10"/>
-   <linked-el length="48" name="%30" offset="629" path="%15"/>
-   <linked-el length="30" name="%30" offset="1783" path="%15"/>
+   <linked-el length="48" name="%30" offset="629" path="%16"/>
+   <linked-el length="30" name="%30" offset="1783" path="%16"/>
    <linked-el length="28" name="%30" offset="2834" path="%10"/>
-   <linked-el length="36" name="%30" offset="1488" path="%15"/>
+   <linked-el length="36" name="%30" offset="1488" path="%16"/>
    <linked-el length="26" name="%30" offset="2149" path="%10"/>
    <linked-el length="28" name="%30" offset="2275" path="%10"/>
    <linked-el length="28" name="%30" offset="2704" path="%10"/>
-   <linked-el length="31" name="%30" offset="1149" path="%15"/>
-   <linked-el length="34" name="%30" offset="580" path="%10"/>
    <linked-el length="52" name="%30" offset="1858" path="%10"/>
+   <linked-el length="34" name="%30" offset="580" path="%10"/>
+   <linked-el length="31" name="%30" offset="1149" path="%16"/>
    <linked-el length="33" name="%30" offset="1571" path="%10"/>
-   <linked-el length="28" name="%30" offset="2574" path="%10"/>
    <linked-el length="56" name="%30" offset="2968" path="%10"/>
+   <linked-el length="28" name="%30" offset="2574" path="%10"/>
    <linked-el length="26" name="%30" offset="2023" path="%10"/>
    <linked-el length="26" name="%31" offset="2149" path="%10"/>
    <linked-el length="28" name="%32" offset="2834" path="%10"/>
    <linked-el length="28" name="%33" offset="2275" path="%10"/>
-   <linked-el length="48" name="%34" offset="629" path="%15"/>
-   <linked-el length="36" name="%35" offset="2035" path="%15"/>
-   <linked-el length="27" name="%35" offset="1858" path="%15"/>
+   <linked-el length="48" name="%34" offset="629" path="%16"/>
+   <linked-el length="36" name="%35" offset="2035" path="%16"/>
+   <linked-el length="27" name="%35" offset="1858" path="%16"/>
    <linked-el length="34" name="%35" offset="856" path="%0"/>
-   <linked-el length="32" name="%35" offset="1061" path="%15"/>
-   <linked-el length="34" name="%35" offset="1432" path="%15"/>
+   <linked-el length="32" name="%35" offset="1061" path="%16"/>
+   <linked-el length="34" name="%35" offset="1432" path="%16"/>
    <linked-el length="16" name="%35" offset="7566" path="%27"/>
    <linked-el length="22" name="%35" offset="564" path="%28"/>
-   <linked-el length="32" name="%35" offset="1569" path="%15"/>
+   <linked-el length="32" name="%35" offset="1569" path="%16"/>
    <linked-el length="16" name="%35" offset="13641" path="%29"/>
-   <linked-el length="26" name="%35" offset="914" path="%15"/>
-   <linked-el length="29" name="%35" offset="1717" path="%15"/>
-   <linked-el length="32" name="%35" offset="591" path="%15"/>
+   <linked-el length="26" name="%35" offset="914" path="%16"/>
+   <linked-el length="29" name="%35" offset="1717" path="%16"/>
+   <linked-el length="32" name="%35" offset="591" path="%16"/>
    <linked-el length="34" name="%35" offset="1081" path="%0"/>
    <linked-el length="29" name="%36" offset="2348" path="%10"/>
    <linked-el length="33" name="%36" offset="1653" path="%10"/>
@@ -292,11 +292,11 @@
    <linked-el length="27" name="%36" offset="2094" path="%10"/>
    <linked-el length="32" name="%36" offset="1794" path="%10"/>
    <linked-el length="38" name="%36" offset="3182" path="%10"/>
-   <linked-el length="29" name="%36" offset="690" path="%10"/>
    <linked-el length="36" name="%36" offset="2510" path="%10"/>
+   <linked-el length="29" name="%36" offset="690" path="%10"/>
    <linked-el length="36" name="%36" offset="1959" path="%10"/>
-   <linked-el length="22" name="%36" offset="1178" path="%10"/>
    <linked-el length="29" name="%36" offset="1232" path="%10"/>
+   <linked-el length="22" name="%36" offset="1178" path="%10"/>
    <linked-el length="29" name="%36" offset="2907" path="%10"/>
    <linked-el length="31" name="%37" offset="1714" path="%10"/>
    <linked-el length="29" name="%27" offset="2348" path="%10"/>
@@ -317,33 +317,33 @@
    <linked-el length="27" name="%27" offset="2094" path="%10"/>
    <linked-el length="32" name="%27" offset="1794" path="%10"/>
    <linked-el length="38" name="%27" offset="3182" path="%10"/>
-   <linked-el length="29" name="%27" offset="690" path="%10"/>
    <linked-el length="36" name="%27" offset="2510" path="%10"/>
+   <linked-el length="29" name="%27" offset="690" path="%10"/>
    <linked-el length="36" name="%27" offset="1959" path="%10"/>
-   <linked-el length="22" name="%27" offset="1178" path="%10"/>
    <linked-el length="29" name="%27" offset="1232" path="%10"/>
+   <linked-el length="22" name="%27" offset="1178" path="%10"/>
    <linked-el length="29" name="%27" offset="2907" path="%10"/>
-   <linked-el length="36" name="%38" offset="1488" path="%15"/>
+   <linked-el length="36" name="%38" offset="1488" path="%16"/>
   </el>
  </validation>
  <aliases>
-  <alias path="mensajes.lbl_zona" value="%11"/>
-  <alias path="mensajes.lbl_codigo_estacion" value="%9"/>
+  <alias path="mensajes.lbl_codigo_estacion" value="%11"/>
+  <alias path="mensajes.lbl_zona" value="%9"/>
   <alias path="mensajes.lbl_sub_zona" value="%12"/>
   <alias path="/ConsultaSeries/WebContent/WEB-INF/faces-config.xml" value="%0"/>
   <alias path="mensajes.lbl_hidrografica" value="%13"/>
   <alias path="sia.cmmad.bean.FacadeBean" value="%2"/>
-  <alias path="mensajes.lbl_fecha" value="%14"/>
-  <alias path="mensajes.lbl_nombre_estacion" value="%16"/>
-  <alias path="sia.cmmad.bean.InformacionEstacion" value="%4"/>
+  <alias path="mensajes.lbl_nombre_estacion" value="%14"/>
+  <alias path="mensajes.lbl_fecha" value="%15"/>
+  <alias path="sia.cmmad.bean.InformacionEstacion" value="%3"/>
   <alias path="mensajes.lbl_final" value="%17"/>
   <alias path="mensajes.lbl_longitud" value="%18"/>
-  <alias path="\ConsultaSeries\WebContent\index.xhtml" value="%7"/>
+  <alias path="\ConsultaSeries\WebContent\index.xhtml" value="%5"/>
   <alias path="mensajes.lbl_area" value="%19"/>
   <alias path="/ConsultaSeries/src/sia/cmmad/bean/util/Utiles.java" value="%29"/>
-  <alias path="mensajes.lbl_variable" value="%20"/>
-  <alias path="mensajes.lbl_latitud" value="%21"/>
-  <alias path="/ConsultaSeries/WebContent/datos_filtro.xhtml" value="%15"/>
+  <alias path="mensajes.lbl_latitud" value="%20"/>
+  <alias path="mensajes.lbl_variable" value="%21"/>
+  <alias path="/ConsultaSeries/WebContent/datos_filtro.xhtml" value="%16"/>
   <alias path="mensajes.lbl_area_operativa" value="%22"/>
   <alias path="mensajes.lbl_categoria" value="%23"/>
   <alias path="mensajes.lbl_elevacion" value="%24"/>
@@ -358,10 +358,10 @@
   <alias path="mensajes.lbl_corriente" value="%32"/>
   <alias path="Estacion" value="%36"/>
   <alias path="/ConsultaSeries/src/sia/cmmad/bean/FacadeBean.java" value="%35"/>
-  <alias path="\ConsultaSeries\src\sia\cmmad\bean\FacadeBean.java" value="%3"/>
-  <alias path="/index.xhtml" value="%6"/>
+  <alias path="\ConsultaSeries\src\sia\cmmad\bean\FacadeBean.java" value="%4"/>
   <alias
-   path="\ConsultaSeries\src\sia\cmmad\bean\InformacionEstacion.java" value="%5"/>
+   path="\ConsultaSeries\src\sia\cmmad\bean\InformacionEstacion.java" value="%7"/>
+  <alias path="/index.xhtml" value="%6"/>
   <alias path="mensajes.lbl_departamento" value="%37"/>
   <alias path="/ConsultaSeries/WebContent/datos_estacion.xhtml" value="%10"/>
   <alias
@@ -373,29 +373,29 @@
   <alias path="%28" value="/ConsultaSeries/WebContent/index.xhtml"/>
   <alias path="%27" value="/ConsultaSeries/src/sia/cmmad/bean/InformacionEstacion.java"/>
   <alias path="%29" value="/ConsultaSeries/src/sia/cmmad/bean/util/Utiles.java"/>
-  <alias path="%20" value="mensajes.lbl_variable"/>
+  <alias path="%20" value="mensajes.lbl_latitud"/>
   <alias path="%22" value="mensajes.lbl_area_operativa"/>
   <alias path="/ConsultaSeries/WebContent/index.xhtml" value="%39"/>
-  <alias path="%21" value="mensajes.lbl_latitud"/>
+  <alias path="%21" value="mensajes.lbl_variable"/>
   <alias path="%24" value="mensajes.lbl_elevacion"/>
   <alias path="%23" value="mensajes.lbl_categoria"/>
   <alias path="%0" value="/ConsultaSeries/WebContent/WEB-INF/faces-config.xml"/>
-  <alias path="%4" value="sia.cmmad.bean.InformacionEstacion"/>
-  <alias path="%3" value="\ConsultaSeries\src\sia\cmmad\bean\FacadeBean.java"/>
+  <alias path="%4" value="\ConsultaSeries\src\sia\cmmad\bean\FacadeBean.java"/>
+  <alias path="%3" value="sia.cmmad.bean.InformacionEstacion"/>
   <alias path="%2" value="sia.cmmad.bean.FacadeBean"/>
   <alias path="%1" value="/ReporteRQ866DCD.xls"/>
-  <alias path="%7" value="\ConsultaSeries\WebContent\index.xhtml"/>
+  <alias path="%7" value="\ConsultaSeries\src\sia\cmmad\bean\InformacionEstacion.java"/>
   <alias path="%17" value="mensajes.lbl_final"/>
   <alias path="%8" value="/ReporteRQ866MAM.xls"/>
-  <alias path="%16" value="mensajes.lbl_nombre_estacion"/>
-  <alias path="%5" value="\ConsultaSeries\src\sia\cmmad\bean\InformacionEstacion.java"/>
-  <alias path="%15" value="/ConsultaSeries/WebContent/datos_filtro.xhtml"/>
+  <alias path="%16" value="/ConsultaSeries/WebContent/datos_filtro.xhtml"/>
+  <alias path="%5" value="\ConsultaSeries\WebContent\index.xhtml"/>
+  <alias path="%15" value="mensajes.lbl_fecha"/>
   <alias path="%6" value="/index.xhtml"/>
-  <alias path="%14" value="mensajes.lbl_fecha"/>
+  <alias path="%14" value="mensajes.lbl_nombre_estacion"/>
   <alias path="%38" value="mensajes.lbl_grupo_medicion"/>
   <alias path="%37" value="mensajes.lbl_departamento"/>
   <alias path="%19" value="mensajes.lbl_area"/>
-  <alias path="%9" value="mensajes.lbl_codigo_estacion"/>
+  <alias path="%9" value="mensajes.lbl_zona"/>
   <alias path="%36" value="Estacion"/>
   <alias path="%18" value="mensajes.lbl_longitud"/>
   <alias path="%35" value="/ConsultaSeries/src/sia/cmmad/bean/FacadeBean.java"/>
@@ -408,7 +408,7 @@
    path="/ConsultaSeries/WebContent/WEB-INF/templates/template.xhtml" value="%40"/>
   <alias path="%12" value="mensajes.lbl_sub_zona"/>
   <alias path="%30" value="mensajes"/>
-  <alias path="%11" value="mensajes.lbl_zona"/>
+  <alias path="%11" value="mensajes.lbl_codigo_estacion"/>
   <alias path="%10" value="/ConsultaSeries/WebContent/datos_estacion.xhtml"/>
  </aliases>
  <includes>

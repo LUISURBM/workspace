@@ -9,7 +9,7 @@
 .file.name= J$.log
 
 # mínimo nivel que aparecerá del logger indicado
-# NOMBRE_DEL_LOGGER= Sinopticas
+# NOMBRE_DEL_LOGGER= BRL
 paquete= src
 paquete.clase= nivel
 paquete.clase.metodo= nivel

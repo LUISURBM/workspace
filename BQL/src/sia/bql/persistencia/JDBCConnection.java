@@ -10,7 +10,7 @@
 /* 10:   */     throws Exception
 /* 11:   */   {
 /* 12:15 */     InitialContext c = new InitialContext();
-/* 13:16 */     DataSource o = (DataSource)c.lookup("java:jboss/datasources/dsHIMEDESADEV");
+/* 13:16 */     DataSource o = (DataSource)c.lookup("java:jboss/datasources/dsHIDROMET");
 /* 14:17 */     return o.getConnection();
 /* 15:   */   }
 /* 16:   */   
@@ -18,7 +18,7 @@
 /* 18:   */     throws Exception
 /* 19:   */   {
 /* 20:20 */     InitialContext c = new InitialContext();
-/* 21:21 */     return (DataSource)c.lookup("java:jboss/datasources/dsHIMEDESADEV");
+/* 21:21 */     return (DataSource)c.lookup("java:jboss/datasources/dsHIDROMET");
 /* 22:   */   }
 /* 23:   */ }
 
